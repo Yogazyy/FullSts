@@ -1,0 +1,4907 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Site Alwaysaqioo - Digital Visionary</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Tambahkan di dalam <head> kode kedua -->
+<script type="importmap">
+  {
+    "imports": {
+      "@google/generative-ai": "https://esm.run/@google/generative-ai"
+    }
+  }
+</script>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'Montserrat', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+        mono: ['Orbitron', 'monospace'],
+      },
+      colors: {
+        gold: '#D4AF37',
+        platinum: '#E5E4E2',
+        onyx: '#0F0F0F',
+        sapphire: '#0F52BA',
+        emerald: '#50C878',
+        neon: {
+          cyan: '#00f5ff',
+          magenta: '#ff00ff',
+          green: '#00ff41',
+          pink: '#ff0080',
+          blue: '#0080ff',
+        }
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 5s infinite',
+        'slide-in-left': 'slideInLeft 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both',
+        'slide-in-left-delayed': 'slideInLeft 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both',
+        'fade-in-left': 'fadeInLeft 0.8s cubic-bezier(0.230, 1.000, 0.320, 1.000) both',
+        'glow': 'glow 2s ease-in-out infinite alternate',
+        'matrix': 'matrix 20s linear infinite',
+        'hologram': 'hologram 3s ease-in-out infinite',
+        'bounce-slow': 'bounce 3s infinite',
+        'world-class-entrance': 'worldClassEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both',
+      }
+    }
+  }
+}
+</script>
+
+<style>
+/* World-Class Animations */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes worldClassEntrance {
+  0% {
+    transform: translateX(-200px) scale(0.8);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  50% {
+    transform: translateX(-50px) scale(0.95);
+    opacity: 0.7;
+    filter: blur(5px);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+input, button {
+      margin: 5px 0;
+      width: 100%;
+      padding: 8px;
+    }
+    
+/* Advanced Intro Animation Styles - BLACK BACKGROUND */
+.intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000; /* Pure black background */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.intro-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  filter: blur(10px);
+}
+
+.intro-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 60% 60%, rgba(0, 255, 65, 0.1) 0%, transparent 50%);
+  animation: backgroundPulse 8s ease-in-out infinite, rotate 30s linear infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.05); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.intro-container {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.intro-text {
+  font-size: 5rem;
+  font-weight: 900;
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff, #00ff41, #ff0080, #0080ff, #ffff00, #ff4000);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: 
+    blurToSharp 3s ease-in-out forwards,
+    gradientShift 4s ease-in-out infinite,
+    textGlow 2s ease-in-out infinite alternate;
+  letter-spacing: 0.2em;
+  position: relative;
+  filter: drop-shadow(0 0 15px rgba(0, 245, 255, 0.6))
+          drop-shadow(0 0 25px rgba(255, 0, 255, 0.4))
+          drop-shadow(0 0 35px rgba(0, 255, 65, 0.3))
+          drop-shadow(0 0 45px rgba(255, 0, 128, 0.2));
+  text-shadow: 
+    0 0 10px rgba(0, 245, 255, 0.8),
+    0 0 20px rgba(255, 0, 255, 0.6),
+    0 0 30px rgba(0, 255, 65, 0.4),
+    0 0 40px rgba(255, 0, 128, 0.3);
+}
+
+@keyframes textGlow {
+  0% { 
+    filter: drop-shadow(0 0 15px rgba(0, 245, 255, 0.6))
+            drop-shadow(0 0 25px rgba(255, 0, 255, 0.4))
+            drop-shadow(0 0 35px rgba(0, 255, 65, 0.3)); 
+  }
+  100% { 
+    filter: drop-shadow(0 0 25px rgba(0, 245, 255, 0.9))
+            drop-shadow(0 0 35px rgba(255, 0, 255, 0.7))
+            drop-shadow(0 0 45px rgba(0, 255, 65, 0.5))
+            drop-shadow(0 0 55px rgba(255, 0, 128, 0.4)); 
+  }
+}
+
+.intro-text::before {
+  content: '# QioExec';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff, #00ff41, #ff0080, #0080ff, #ffff00, #ff4000);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(3px);
+  opacity: 0.8;
+  z-index: -1;
+  animation: gradientShift 3s ease-in-out infinite reverse;
+}
+
+.intro-text::after {
+  content: '# QioExec';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ff0080, #0080ff, #00f5ff, #ff00ff, #00ff41, #ffff00, #ff4000);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(2px);
+  opacity: 0.5;
+  z-index: -2;
+  animation: gradientShift 5s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 50% 100%; }
+  75% { background-position: 0% 50%; }
+  100% { background-position: 50% 0%; }
+}
+
+.intro-letter {
+  display: inline-block;
+  color: white; /* Warna teks putih */
+  animation: shatter 1s ease-in-out forwards;
+  animation-delay: 3.5s;
+  transform-origin: center;
+  position: relative;
+  text-shadow: 
+    0 0 8px white,
+    0 0 15px white,
+    0 0 25px white,
+    0 0 35px #00f5ff,   /* biru terang */
+    0 0 45px #00f5ff,
+    0 0 55px #00f5ff,
+    3px 3px 0px #ff00ff, /* efek tambahan pink */
+    6px 6px 0px #0080ff, /* efek tambahan biru gelap */
+    9px 9px 15px rgba(0, 0, 0, 0.9); /* bayangan gelap terakhir */
+}
+
+.intro-letter:nth-child(1) { animation-delay: 3.6s; }
+.intro-letter:nth-child(2) { animation-delay: 3.7s; }
+.intro-letter:nth-child(3) { animation-delay: 3.8s; }
+.intro-letter:nth-child(4) { animation-delay: 3.9s; }
+.intro-letter:nth-child(5) { animation-delay: 4.0s; }
+.intro-letter:nth-child(6) { animation-delay: 4.1s; }
+.intro-letter:nth-child(7) { animation-delay: 4.2s; }
+.intro-letter:nth-child(8) { animation-delay: 4.3s; }
+.intro-letter:nth-child(9) { animation-delay: 4.4s; }
+.intro-letter:nth-child(10) { animation-delay: 4.5s; }
+.intro-letter:nth-child(11) { animation-delay: 4.6s; }
+.intro-letter:nth-child(12) { animation-delay: 4.7s; }
+.intro-letter:nth-child(13) { animation-delay: 4.8s; }
+.intro-letter:nth-child(14) { animation-delay: 4.9s; }
+.intro-letter:nth-child(15) { animation-delay: 5.0s; }
+.intro-letter:nth-child(16) { animation-delay: 5.1s; }
+.intro-letter:nth-child(17) { animation-delay: 5.2s; }
+
+@keyframes blurToSharp {
+  0% {
+    filter: blur(30px) brightness(0.2) saturate(0.5);
+    opacity: 0;
+    transform: scale(1.4) rotateX(60deg) rotateY(15deg);
+    text-shadow: none;
+  }
+  25% {
+    filter: blur(20px) brightness(0.5) saturate(0.8);
+    opacity: 0.2;
+    transform: scale(1.3) rotateX(45deg) rotateY(10deg);
+  }
+  50% {
+    filter: blur(12px) brightness(0.7) saturate(1.2);
+    opacity: 0.5;
+    transform: scale(1.2) rotateX(30deg) rotateY(5deg);
+  }
+  75% {
+    filter: blur(6px) brightness(0.9) saturate(1.5);
+    opacity: 0.8;
+    transform: scale(1.1) rotateX(15deg) rotateY(2deg);
+  }
+  100% {
+    filter: blur(0px) brightness(1) saturate(2)
+           drop-shadow(0 0 15px rgba(0, 245, 255, 0.6))
+           drop-shadow(0 0 25px rgba(255, 0, 255, 0.4))
+           drop-shadow(0 0 35px rgba(0, 255, 65, 0.3));
+    opacity: 1;
+    transform: scale(1) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes shatter {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+    text-shadow: 
+      0 0 8px currentColor,
+      0 0 15px currentColor,
+      0 0 25px currentColor,
+      0 0 35px #00f5ff,
+      0 0 45px #00f5ff,
+      0 0 55px #00f5ff,
+      3px 3px 0px #ff00ff,
+      6px 6px 0px #0080ff,
+      9px 9px 15px rgba(0, 0, 0, 0.9);
+  }
+  20% {
+    transform: translateY(-40px) rotate(10deg) scale(1.3);
+    opacity: 0.95;
+    text-shadow: 
+      0 0 12px currentColor,
+      0 0 20px currentColor,
+      0 0 30px #ff00ff,
+      0 0 40px #ff00ff,
+      0 0 50px #ff00ff,
+      4px 4px 0px #00f5ff,
+      8px 8px 0px #0080ff,
+      12px 12px 20px rgba(0, 0, 0, 1);
+  }
+  40% {
+    transform: translateY(-20px) rotate(-8deg) scale(0.9);
+    opacity: 0.8;
+    text-shadow: 
+      0 0 15px currentColor,
+      0 0 25px #00ff41,
+      0 0 35px #00ff41,
+      0 0 45px #00ff41,
+      5px 5px 0px #ff0080,
+      10px 10px 0px #0080ff,
+      15px 15px 25px rgba(0, 0, 0, 1);
+  }
+  60% {
+    transform: translateY(30px) rotate(18deg) scale(0.6);
+    opacity: 0.6;
+    text-shadow: 
+      0 0 18px currentColor,
+      0 0 30px #ff0080,
+      0 0 40px #ff0080,
+      0 0 50px #ff0080,
+      7px 7px 0px #00f5ff,
+      14px 14px 0px #ff00ff,
+      21px 21px 30px rgba(0, 0, 0, 1);
+  }
+  80% {
+    transform: translateY(80px) rotate(30deg) scale(0.3);
+    opacity: 0.3;
+    text-shadow: 
+      0 0 25px currentColor,
+      0 0 35px #0080ff,
+      0 0 45px #0080ff,
+      0 0 55px #0080ff,
+      10px 10px 0px #00ff41,
+      20px 20px 0px #ff00ff,
+      30px 30px 35px rgba(0, 0, 0, 1);
+  }
+  100% {
+    transform: translateY(200px) rotate(45deg) scale(0.1);
+    opacity: 0;
+    text-shadow: 
+      0 0 30px currentColor,
+      0 0 40px #ffff00,
+      0 0 50px #ffff00,
+      0 0 60px #ffff00,
+      15px 15px 0px #ff4000,
+      30px 30px 0px #ff00ff,
+      45px 45px 40px rgba(0, 0, 0, 1);
+  }
+}
+
+.intro-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.intro-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #00f5ff 0%, #ff00ff 30%, #00ff41 60%, #ff0080 100%);
+  border-radius: 50%;
+  animation: explode 3s ease-out forwards;
+  animation-delay: 4.5s;
+  opacity: 0;
+  box-shadow: 
+    0 0 15px #00f5ff,
+    0 0 25px #ff00ff,
+    0 0 35px #00ff41,
+    0 0 45px #ff0080;
+}
+
+.intro-particle:nth-child(1) { animation-delay: 4.6s; left: -80px; top: -60px; }
+.intro-particle:nth-child(2) { animation-delay: 4.7s; left: 40px; top: -80px; }
+.intro-particle:nth-child(3) { animation-delay: 4.8s; left: 100px; top: -40px; }
+.intro-particle:nth-child(4) { animation-delay: 4.9s; left: -60px; top: 70px; }
+.intro-particle:nth-child(5) { animation-delay: 5.0s; left: 70px; top: 100px; }
+.intro-particle:nth-child(6) { animation-delay: 5.1s; left: -100px; top: 40px; }
+.intro-particle:nth-child(7) { animation-delay: 5.2s; left: 120px; top: 60px; }
+.intro-particle:nth-child(8) { animation-delay: 5.3s; left: -40px; top: -100px; }
+.intro-particle:nth-child(9) { animation-delay: 5.4s; left: 80px; top: -20px; }
+.intro-particle:nth-child(10) { animation-delay: 5.5s; left: -70px; top: 90px; }
+.intro-particle:nth-child(11) { animation-delay: 5.6s; left: 30px; top: 120px; }
+.intro-particle:nth-child(12) { animation-delay: 5.7s; left: -120px; top: -20px; }
+
+@keyframes explode {
+  0% {
+    opacity: 1;
+    transform: scale(0) rotate(0deg);
+    box-shadow: 
+      0 0 10px #00f5ff,
+      0 0 15px #ff00ff,
+      0 0 20px #00ff41;
+  }
+  30% {
+    opacity: 1;
+    transform: scale(2) rotate(120deg);
+    box-shadow: 
+      0 0 20px #00f5ff,
+      0 0 30px #ff00ff,
+      0 0 40px #00ff41,
+      0 0 50px #ff0080;
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.5) rotate(240deg);
+    box-shadow: 
+      0 0 25px #00f5ff,
+      0 0 35px #ff00ff,
+      0 0 45px #00ff41,
+      0 0 55px #ff0080;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2) rotate(360deg) translateY(150px);
+    box-shadow: 
+      0 0 30px #00f5ff,
+      0 0 40px #ff00ff,
+      0 0 50px #00ff41,
+      0 0 60px #ff0080;
+  }
+}
+
+/* Advanced Cyber Grid */
+.intro-cyber-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 0, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+  animation: gridMove 25s linear infinite, gridPulse 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+/* Skip Button */
+.skip-button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, rgba(0, 245, 255, 0.2), rgba(255, 0, 255, 0.2));
+  border: 2px solid rgba(0, 245, 255, 0.6);
+  color: #00f5ff;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  animation: fadeInButton 2s ease-in-out 2s forwards, pulse 2s infinite;
+  opacity: 0;
+  text-shadow: 0 0 10px #00f5ff;
+  box-shadow: 
+    0 0 20px rgba(0, 245, 255, 0.4),
+    inset 0 0 20px rgba(0, 245, 255, 0.1);
+  z-index: 10;
+}
+
+.skip-button:hover {
+  background: linear-gradient(45deg, rgba(0, 245, 255, 0.3), rgba(255, 0, 255, 0.3));
+  border-color: rgba(255, 0, 255, 0.8);
+  color: #ff00ff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 0, 255, 0.6),
+    inset 0 0 30px rgba(255, 0, 255, 0.1);
+  text-shadow: 0 0 15px #ff00ff;
+}
+
+@keyframes fadeInButton {
+  to { opacity: 1; }
+}
+
+/* Main website styles */
+.main-website {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding-bottom: 100px; /* Space for bottom navigation */
+}
+
+.main-website.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bottom Navigation Styles */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  z-index: 1000;
+  padding: 12px 0;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+}
+
+.nav-item:hover::before,
+.nav-item.active::before {
+  opacity: 1;
+}
+
+.nav-item i {
+  font-size: 24px;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-item span {
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  transform: translateY(-3px);
+  color: #D4AF37;
+}
+
+.nav-item:hover i,
+.nav-item.active i {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+}
+
+.nav-item.active {
+  color: #D4AF37;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: #D4AF37;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+/* Section Styles */
+.section {
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  display: none;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced Website Styles */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(1deg); }
+  66% { transform: translateY(-25px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes wave {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+  100% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.4); }
+}
+
+@keyframes matrix {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
+
+@keyframes hologram {
+  0%, 100% { opacity: 1; transform: translateZ(0); }
+  50% { opacity: 0.7; transform: translateZ(10px); }
+}
+
+body {
+  background: 
+    radial-gradient(ellipse at top, #0F0F0F 0%, #1A1A1A 50%, #0F0F0F 100%),
+    linear-gradient(135deg, rgba(212, 175, 55, 0.02) 0%, rgba(15, 15, 15, 1) 100%);
+  color: #E5E4E2;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.luxury-border {
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  position: relative;
+}
+
+.luxury-border::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, #D4AF37, transparent, #D4AF37, transparent, #D4AF37);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradientShift 6s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.luxury-shadow {
+  box-shadow: 
+    0 10px 30px rgba(212, 175, 55, 0.3),
+    0 0 60px rgba(212, 175, 55, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #D4AF37, #E5E4E2, #D4AF37, #FFD700, #D4AF37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 300% auto;
+  animation: gradient 4s linear infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
+/* World-Class Grid Layout for Products and Partners */
+.world-class-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 40px 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .world-class-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 900px) {
+  .world-class-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .world-class-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* NEW: Horizontal Product Layout */
+.product-category {
+  margin-bottom: 60px;
+}
+
+.product-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+}
+
+.product-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.product-row::-webkit-scrollbar-track {
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 4px;
+}
+
+.product-row::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #D4AF37, #FFD700);
+  border-radius: 4px;
+}
+
+.product-row::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #FFD700, #D4AF37);
+}
+
+/* Medium-sized Product Cards */
+.product-card-medium {
+  background: linear-gradient(145deg, 
+    rgba(26, 26, 26, 0.95), 
+    rgba(42, 42, 42, 0.95), 
+    rgba(26, 26, 26, 0.95)
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  min-width: 320px;
+  max-width: 320px;
+  height: 420px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateX(-50px);
+  opacity: 0;
+  box-shadow: 
+    0 12px 28px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(212, 175, 55, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.product-card-medium.animate {
+  animation: slideInFromLeft 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 30px;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      transition: transform 0.3s ease;
+    }
+    
+.container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      max-width: 90%;
+      width: 500px;
+    }
+
+    /* Logo */
+    .logo-container {
+      margin-bottom: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+.product-card-medium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(212, 175, 55, 0.15), 
+    rgba(255, 215, 0, 0.25),
+    rgba(212, 175, 55, 0.15),
+    transparent
+  );
+  transition: left 0.8s ease;
+}
+
+.product-card-medium:hover::before {
+  left: 100%;
+}
+
+.product-card-medium:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 12px 28px rgba(212, 175, 55, 0.3),
+    0 0 60px rgba(212, 175, 55, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+/* World-Class Partner Card */
+.world-class-partner-card {
+  background: linear-gradient(145deg, 
+    rgba(26, 26, 26, 0.95), 
+    rgba(42, 42, 42, 0.95), 
+    rgba(26, 26, 26, 0.95)
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  padding: 25px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateX(-100px);
+  opacity: 0;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    0 5px 15px rgba(212, 175, 55, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.world-class-partner-card.animate {
+  animation: worldClassEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.world-class-partner-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(212, 175, 55, 0.2), 
+    rgba(255, 215, 0, 0.3),
+    rgba(212, 175, 55, 0.2),
+    transparent
+  );
+  transition: left 0.8s ease;
+}
+
+.world-class-partner-card:hover::before {
+  left: 100%;
+}
+
+.world-class-partner-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 15px 35px rgba(212, 175, 55, 0.3),
+    0 0 60px rgba(212, 175, 55, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+/* World-Class Product Card */
+.world-class-product-card {
+  background: linear-gradient(145deg, 
+    rgba(26, 26, 26, 0.95), 
+    rgba(42, 42, 42, 0.95), 
+    rgba(26, 26, 26, 0.95)
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateX(-100px);
+  opacity: 0;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    0 5px 15px rgba(212, 175, 55, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.world-class-product-card.animate {
+  animation: worldClassEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.world-class-product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(212, 175, 55, 0.15), 
+    rgba(255, 215, 0, 0.25),
+    rgba(212, 175, 55, 0.15),
+    transparent
+  );
+  transition: left 0.8s ease;
+}
+
+.world-class-product-card:hover::before {
+  left: 100%;
+}
+
+.world-class-product-card:hover {
+  transform: translateY(-20px) scale(1.03);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 20px 40px rgba(212, 175, 55, 0.3),
+    0 0 80px rgba(212, 175, 55, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+/* World-Class Animations */
+.animate-from-left {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animate-from-left.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.animate-from-left-delayed {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animate-from-left-delayed.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+  background: linear-gradient(45deg, #D4AF37, #FFD700, #D4AF37);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  box-shadow: 
+    0 8px 25px rgba(212, 175, 55, 0.3),
+    0 3px 10px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 15px 40px rgba(212, 175, 55, 0.4),
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* World-Class Typography */
+.world-class-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37, #E5E4E2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.world-class-subtitle {
+  font-size: 1.5rem;
+  color: #E5E4E2;
+  opacity: 0.9;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+/* Floating Diamond Background Elements */
+.floating-diamonds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.diamond {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, rgba(212, 175, 55, 0.4), rgba(255, 215, 0, 0.6));
+  transform: rotate(45deg);
+  animation: float 8s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+  border-radius: 2px;
+}
+
+/* App-like Styles */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  z-index: 999;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+/* Notification Badge */
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: linear-gradient(45deg, #ff4757, #ff3838);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  animation: bounce-slow 3s infinite;
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+  .intro-text {
+    font-size: 3.5rem;
+    letter-spacing: 0.15em;
+  }
+  
+  .skip-button {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .section {
+    padding: 80px 15px 40px;
+  }
+
+  .world-class-title {
+    font-size: 2.5rem;
+  }
+
+  .world-class-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .product-card-medium {
+    min-width: 280px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-text {
+    font-size: 2.5rem;
+    letter-spacing: 0.1em;
+  }
+  
+  .intro-particle {
+    width: 6px;
+    height: 6px;
+  }
+
+  .nav-item i {
+    font-size: 20px;
+  }
+
+  .nav-item span {
+    font-size: 10px;
+  }
+
+  .world-class-title {
+    font-size: 2rem;
+  }
+
+  .world-class-subtitle {
+    font-size: 1rem;
+  }
+
+  .product-card-medium {
+    min-width: 260px;
+    max-width: 260px;
+  }
+}
+
+/* Loading Animation */
+.loading-bar {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 4px;
+  background: rgba(0, 245, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loading-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #00f5ff, #ff00ff, #00ff41);
+  border-radius: 2px;
+  animation: loadingProgress 6s ease-in-out forwards;
+  width: 0;
+}
+
+@keyframes loadingProgress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* Enhanced Scroll Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Advanced Hover Effects */
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* World-Class Section Dividers */
+.world-class-divider {
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(212, 175, 55, 0.3), 
+    rgba(255, 215, 0, 0.6),
+    rgba(212, 175, 55, 0.3), 
+    transparent
+  );
+  margin: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.world-class-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.5), 
+    transparent
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+<!-- Tambahkan di dalam <style> kode kedua -->
+/* ================= CHAT AI STYLES ================= */
+#ai-chat-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 70vh;
+  background: rgba(26, 26, 26, 0.8);
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+#ai-chat-container.light {
+  background: rgba(245, 245, 245, 0.95);
+}
+
+#ai-chat-container.light .ai-message {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+#ai-chat-container.light .ai-message.user {
+  background: rgba(230, 240, 255, 0.9);
+}
+
+#ai-chat-container.light .ai-message.assistant {
+  background: rgba(230, 255, 240, 0.9);
+}
+
+#ai-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ai-message {
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 15px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  max-width: 85%;
+  align-self: flex-start;
+}
+
+.ai-message.animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.ai-message.user {
+  background: rgba(15, 82, 186, 0.15);
+  border-color: rgba(15, 82, 186, 0.4);
+  align-self: flex-end;
+}
+
+.ai-message.assistant {
+  background: rgba(80, 200, 120, 0.15);
+  border-color: rgba(80, 200, 120, 0.4);
+}
+
+#ai-prompt-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 15px;
+  background: rgba(30, 30, 30, 0.7);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+#ai-prompt-input {
+  flex: 1;
+  background: rgba(40, 40, 40, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 15px;
+  padding: 12px 15px;
+  color: #E5E4E2;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  resize: none;
+  min-height: 50px;
+  max-height: 150px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+#ai-chat-container.light #ai-prompt-input {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+#ai-prompt-input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3);
+}
+
+#ai-submit-button {
+  background: linear-gradient(45deg, #8b5cf6, #6d28d9);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #E5E4E2;
+  border-radius: 12px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#ai-submit-button:hover {
+  background: linear-gradient(45deg, #7c3aed, #8b5cf6);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.typing-indicator {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.typing-indicator span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #8b5cf6;
+  border-radius: 50%;
+  margin: 0 3px;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+#ai-chat-container.light .typing-indicator span {
+  background-color: #6d28d9;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1.0);
+  }
+}
+
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+
+
+/* Global Layout */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: sans-serif;
+}
+
+/* Particles Canvas */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Logo Hover */
+.logo:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--primary-color), #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #10b981;
+  letter-spacing: 0.5px;
+  animation: fadeIn 1.5s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-color-muted);
+  margin-bottom: 2.5rem;
+  max-width: 80%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 15px 35px var(--shadow-color);
+  animation: fadeIn 1s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+/* Start Chat Button */
+.start-chat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+}
+
+.start-chat-btn:hover {
+  background-color: var(--primary-color-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(139, 92, 246, 0.4);
+}
+
+.start-chat-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.feature-icon {
+  background-color: rgba(139, 92, 246, 0.2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.feature-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--primary-color);
+}
+
+.feature-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.feature-desc {
+  font-size: 0.8rem;
+  color: var(--text-color-muted);
+}
+
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-color-muted);
+  position: relative;
+  z-index: 1;
+}
+
+.footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: var(--primary-color-hover);
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Typing Animation */
+.typing-animation {
+  border-right: 3px solid #10b981;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  display: inline-block;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #10b981 }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .features {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .feature {
+    flex-direction: row;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .feature-icon {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+</style>
+</head>
+<body class="relative overflow-x-hidden">
+
+<!-- Intro Animation Screen -->
+<div class="intro-screen" id="introScreen">
+  <div class="intro-cyber-grid"></div>
+
+  <div class="intro-container">
+    <div class="intro-text" id="introText">
+      <span class="intro-letter"># QioExec</span>
+    </div>
+
+    <!-- Tambahan logo dan caption -->
+    <div class="container">
+      <div class="logo-container">
+        <div class="logo-caption">alwaysaqioo.my.id</div>
+        <img src="https://files.catbox.moe/c1mmot.jpg" alt="Qio AI Logo" class="logo">
+        <div class="logo-caption">alwaysaqioo.my.id</div>
+      </div>
+    </div>
+
+    <div class="intro-particles">
+      <div class="intro-particle"></div>
+      <div class="intro-particle"></div>
+      <!-- ... dst ... -->
+    </div>
+  </div>
+
+  <!-- Loading Bar -->
+  <div class="loading-bar">
+    <div class="loading-progress"></div>
+  </div>
+
+  <!-- Skip Button -->
+  <button class="skip-button" id="skipButton">
+    <i class="fas fa-forward mr-2"></i>SKIP INTRO
+  </button>
+</div>
+
+<!-- Main Website Content -->
+<div class="main-website" id="mainWebsite">
+<!-- App Header -->
+<div class="app-header">
+  <div class="app-title">Alwaysaqioo - Digital Visionary</div>
+</div>
+
+<!-- Floating Diamond Background Elements -->
+<div class="floating-diamonds">
+  <div class="diamond" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+  <div class="diamond" style="top: 20%; left: 15%; animation-delay: 1s; width: 15px; height: 15px;"></div>
+  <div class="diamond" style="top: 50%; left: 80%; animation-delay: 2s;"></div>
+  <div class="diamond" style="top: 70%; left: 10%; animation-delay: 3s; width: 8px; height: 8px;"></div>
+  <div class="diamond" style="top: 30%; left: 90%; animation-delay: 4s;"></div>
+  <div class="diamond" style="top: 85%; left: 50%; animation-delay: 5s; width: 12px; height: 12px;"></div>
+  <div class="diamond" style="top: 15%; left: 70%; animation-delay: 6s; width: 10px; height: 10px;"></div>
+  <div class="diamond" style="top: 60%; left: 25%; animation-delay: 7s; width: 14px; height: 14px;"></div>
+</div>
+
+<!-- Home Section -->
+<section id="home" class="section active">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col items-center text-center">
+      <div class="w-44 h-44 rounded-full border-4 border-gold flex items-center justify-center mb-8 animate-float luxury-shadow hover-lift bg-gradient-to-br from-gold/20 to-transparent animate-from-left show">
+        <img src="https://files.catbox.moe/c1mmot.jpg" alt="Alwaysaqioo" class="w-40 h-40 rounded-full object-cover">
+      </div>
+      
+      <h1 class="world-class-title mb-6 animate-from-left-delayed show" style="animation-delay: 0.2s;">
+        Alwaysaqioo
+      </h1>
+      
+      <div class="flex items-center mb-8 animate-from-left-delayed show" style="animation-delay: 0.4s;">
+        <span class="text-2xl md:text-3xl font-light text-platinum mr-4">Digital Visionary</span>
+        <div class="w-10 h-10 rounded-full bg-emerald flex items-center justify-center luxury-shadow animate-pulse">
+          <i class="fas fa-check text-sm text-white"></i>
+        </div>
+      </div>
+      
+      <p class="world-class-subtitle max-w-4xl mb-10 animate-from-left-delayed show" style="animation-delay: 0.6s;">
+        Crafting elite digital solutions with unparalleled sophistication and cutting-edge innovation that transcends conventional boundaries.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 animate-from-left-delayed show" style="animation-delay: 0.8s;">
+        <button onclick="navigateToSection('products')" class="btn-primary px-10 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow text-lg">
+          <i class="fas fa-rocket mr-2"></i>Explore Products
+        </button>
+        <button onclick="navigateToSection('partners')" class="px-10 py-4 border-2 border-gold text-gold font-bold rounded-full hover:bg-gold hover:text-black transition duration-300 text-lg hover-lift">
+          <i class="fas fa-users mr-2"></i>Our Network
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <h2 class="world-class-title mb-6 animate-from-left show">
+        About The Visionary
+      </h2>
+      <div class="world-class-divider"></div>
+      <p class="world-class-subtitle max-w-5xl mx-auto animate-from-left-delayed show" style="animation-delay: 0.2s;">
+        Alwaysaqioo represents the pinnacle of digital craftsmanship, blending technical mastery with innovative vision to create solutions that redefine boundaries and set new industry standards.
+      </p>
+    </div>
+    
+    <div class="world-class-grid">
+      <div class="world-class-product-card animate" style="animation-delay: 0.1s;">
+        <div class="text-gold text-5xl mb-6">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3 class="text-3xl font-serif font-semibold text-gold mb-4">Technical Mastery</h3>
+        <p class="text-platinum opacity-90 text-lg leading-relaxed flex-grow">
+          Deep expertise across multiple programming languages and frameworks, delivering robust and scalable solutions that stand the test of time.
+        </p>
+      </div>
+      
+      <div class="world-class-product-card animate" style="animation-delay: 0.2s;">
+        <div class="text-gold text-5xl mb-6">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3 class="text-3xl font-serif font-semibold text-gold mb-4">Innovative Vision</h3>
+        <p class="text-platinum opacity-90 text-lg leading-relaxed flex-grow">
+          Pioneering new approaches to digital challenges with creative problem-solving and forward-thinking methodologies.
+        </p>
+      </div>
+      
+      <div class="world-class-product-card animate" style="animation-delay: 0.3s;">
+        <div class="text-gold text-5xl mb-6">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="text-3xl font-serif font-semibold text-gold mb-4">Elite Security</h3>
+        <p class="text-platinum opacity-90 text-lg leading-relaxed flex-grow">
+          Implementing cutting-edge security protocols to protect digital assets and ensure uncompromised performance.
+        </p>
+      </div>
+      
+      <div class="world-class-product-card animate" style="animation-delay: 0.4s;">
+        <div class="text-gold text-5xl mb-6">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3 class="text-3xl font-serif font-semibold text-gold mb-4">Performance Excellence</h3>
+        <p class="text-platinum opacity-90 text-lg leading-relaxed flex-grow">
+          Optimizing every aspect of digital solutions to deliver lightning-fast performance and exceptional user experiences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section id="partners" class="section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <h2 class="world-class-title mb-6 animate-from-left show">
+        Elite Partnership Network
+      </h2>
+      <div class="world-class-divider"></div>
+      <p class="world-class-subtitle max-w-5xl mx-auto animate-from-left-delayed show" style="animation-delay: 0.2s;">
+        Collaborating with the finest digital artisans to deliver unparalleled solutions and exceptional experiences.
+      </p>
+    </div>
+
+    <!-- Partner Grid - World Class Layout -->
+    <div class="world-class-grid">
+      <!-- Partner 1 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 0.1s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">T</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Than <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Private Partner 1</p>
+          </div>
+        </div>
+        <a href="https://t.me/thanror" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @thanror
+        </a>
+      </div>
+      
+      <!-- Partner 2 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 0.2s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">J</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Jayy <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Private Partner 2</p>
+          </div>
+        </div>
+        <a href="https://t.me/jsyyy66" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @jsyyy66
+        </a>
+      </div>
+      
+      <!-- Partner 3 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 0.3s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">F</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Farras <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Murid Bug</p>
+          </div>
+        </div>
+        <a href="https://t.me/Farrasnew" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @Farrasnew
+        </a>
+      </div>
+      
+      <!-- Partner 4 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 0.4s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">D</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Dikzz <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script Bug, Tools Ddo, Murid Bug, Panel ptrodactyl</p>
+          </div>
+        </div>
+        <a href="https://t.me/dikzz98" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @dikzz98
+        </a>
+      </div>
+      
+      <!-- Partner 5 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 0.5s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">Y</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Yazime Majesty <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Security Tools</p>
+          </div>
+        </div>
+        <a href="https://t.me/Zimewashere" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @Zimewashere
+        </a>
+      </div>
+      
+      <!-- Partner 6 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 0.6s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">X</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Xrelly Zhuxox <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Code Obfuscation</p>
+          </div>
+        </div>
+        <a href="https://t.me/xrelly" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @xrelly
+        </a>
+      </div>
+
+      <!-- Partner 7 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 0.7s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">Z</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              ZenX <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script Bot</p>
+          </div>
+        </div>
+        <a href="https://t.me/UserZenX" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @UserZenX
+        </a>
+      </div>
+
+      <!-- Partner 8 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 0.8s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">R</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              RitzzAvailableV555 <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script Bot</p>
+          </div>
+        </div>
+        <a href="https://t.me/RitzzAvailableV555" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @RitzzAvailableV555
+        </a>
+      </div>
+
+      <!-- Partner 9 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 0.9s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">S</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Sep <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script Bot</p>
+          </div>
+        </div>
+        <a href="https://t.me/asepnotdev" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @asepnotdev
+        </a>
+      </div>
+
+      <!-- Partner 10 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 1.0s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">G</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Gusz4youu <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Akun Game, Dll</p>
+          </div>
+        </div>
+        <a href="https://t.me/Gusz4youu" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @Gusz4youu
+        </a>
+      </div>
+
+      <!-- Partner 11 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 1.1s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">A</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              AnggaaTzy <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script bot, Panel ptrodactyl, Jasa, Dll</p>
+          </div>
+        </div>
+        <a href="https://t.me/AnggaaTzy" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @AnggaaTzy
+        </a>
+      </div>
+
+      <!-- Partner 12 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 1.2s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">P</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              PetraInfernox <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script bot, Panel ptrodactyl, Dll</p>
+          </div>
+        </div>
+        <a href="https://t.me/PetraInfernox" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @PetraInfernox
+        </a>
+      </div>
+
+      <!-- Partner 13 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 1.3s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">S</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Sasuke <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script bot</p>
+          </div>
+        </div>
+        <a href="https://t.me/Saske669" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @Saske669
+        </a>
+      </div>
+    </div>
+    
+          <!-- Partner 14 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 1.2s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">P</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Manzz <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script bot, Panel ptrodactyl, Dll</p>
+          </div>
+        </div>
+        <a href="https://t.me/ManzzGanteng" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @ManzzGanteng
+        </a>
+      </div>
+      
+                <!-- Partner 14 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 1.2s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">P</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Luxxy <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script bot, Panel ptrodactyl, Dll</p>
+          </div>
+        </div>
+        <a href="https://t.me/LuxxyAnonim" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @LuxxyAnonim
+        </a>
+      </div>
+      
+                <!-- Partner 15 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 1.2s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">P</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Kaizi <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script bot, Panel ptrodactyl, Dll</p>
+          </div>
+        </div>
+        <a href="https://t.me/KaiziDsini" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @KaiziDsini
+        </a>
+      </div>
+      
+                      <!-- Partner 15 -->
+      <div class="world-class-partner-card animate" style="animation-delay: 1.2s;">
+        <div class="flex items-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gold to-onyx flex items-center justify-center mr-4 luxury-shadow">
+            <span class="text-white font-bold text-xl">P</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-gold flex items-center">
+              Snitchezs <span class="ml-3 w-6 h-6 rounded-full bg-emerald flex items-center justify-center">
+                <i class="fas fa-check text-xs text-white"></i>
+              </span>
+            </h3>
+            <p class="text-sm text-platinum opacity-80">Script bot, Panel ptrodactyl, Dll</p>
+          </div>
+        </div>
+        <a href="https://t.me/Snitchezs" class="inline-flex items-center text-sapphire hover:text-gold transition duration-300 font-medium">
+          <i class="fab fa-telegram mr-2"></i> @Snitchezs
+        </a>
+      </div>
+
+    <!-- Partnership Information Section -->
+    <div class="mt-20">
+      <div class="world-class-product-card animate" style="animation-delay: 1.4s; min-height: auto;">
+        <div class="text-center mb-10">
+          <h3 class="world-class-title mb-4">Menjadi Partner</h3>
+          <div class="world-class-divider"></div>
+          <p class="world-class-subtitle max-w-4xl mx-auto">
+            Bergabunglah dengan jaringan eksklusif kami dan raih kesempatan untuk berkembang bersama visi yang sama.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+          <div class="bg-gradient-to-br from-onyx to-black p-8 rounded-xl luxury-border">
+            <h4 class="text-2xl font-semibold text-gold mb-6 flex items-center">
+              <i class="fas fa-user-tie mr-4 text-3xl"></i> Persyaratan Partner
+            </h4>
+            <ul class="space-y-3 text-platinum opacity-90 text-lg">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-emerald mr-3 mt-1"></i>
+                Tidak menggunakan identitas palsu untuk masuk
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-emerald mr-3 mt-1"></i>
+                Sopan dan profesional terhadap customer
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-emerald mr-3 mt-1"></i>
+                Komitmen untuk tidak melakukan aktivitas scam
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-emerald mr-3 mt-1"></i>
+                Memiliki integritas dan amanah yang tinggi
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-gradient-to-br from-onyx to-black p-8 rounded-xl luxury-border">
+            <h4 class="text-2xl font-semibold text-gold mb-6 flex items-center">
+              <i class="fas fa-money-bill-wave mr-4 text-3xl"></i> Biaya Partner
+            </h4>
+            <div class="space-y-4 text-platinum opacity-90 text-lg">
+              <div class="flex items-center justify-between p-4 bg-black rounded-lg">
+                <span>Biaya masuk partner:</span>
+                <span class="text-gold font-bold">Rp50.000</span>
+              </div>
+              <div class="flex items-center justify-between p-4 bg-black rounded-lg">
+                <span>Equivalent USD:</span>
+                <span class="text-gold font-bold">≈ $5 USD</span>
+              </div>
+              <p class="text-emerald text-center font-medium">
+                <i class="fas fa-shield-alt mr-2"></i>
+                Tidak ada biaya tersembunyi atau tambahan
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="mb-12">
+          <h4 class="text-3xl font-semibold text-gold mb-8 flex items-center justify-center">
+            <i class="fas fa-gift mr-4"></i> Benefit Menjadi Partner
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gradient-to-br from-emerald/20 to-transparent p-6 rounded-xl border border-emerald/30">
+              <i class="fas fa-dollar-sign text-emerald text-2xl mb-3"></i>
+              <h5 class="text-gold font-semibold mb-2">Penghasilan Fleksibel</h5>
+              <p class="text-platinum opacity-90">Kesempatan mendapatkan penghasilan tambahan secara fleksibel</p>
+            </div>
+            <div class="bg-gradient-to-br from-sapphire/20 to-transparent p-6 rounded-xl border border-sapphire/30">
+              <i class="fas fa-users text-sapphire text-2xl mb-3"></i>
+              <h5 class="text-gold font-semibold mb-2">Komunitas Eksklusif</h5>
+              <p class="text-platinum opacity-90">Masuk kedalam komunitas khusus (QIO-FAMILY)</p>
+            </div>
+            <div class="bg-gradient-to-br from-gold/20 to-transparent p-6 rounded-xl border border-gold/30">
+              <i class="fas fa-handshake text-gold text-2xl mb-3"></i>
+              <h5 class="text-gold font-semibold mb-2">Dukungan Penuh</h5>
+              <p class="text-platinum opacity-90">Dukungan penuh dari tim manajemen untuk kelancaran operasional</p>
+            </div>
+            <div class="bg-gradient-to-br from-purple-500/20 to-transparent p-6 rounded-xl border border-purple-500/30">
+              <i class="fas fa-star text-purple-400 text-2xl mb-3"></i>
+              <h5 class="text-gold font-semibold mb-2">Program Spesial</h5>
+              <p class="text-platinum opacity-90">Prioritas untuk mengikuti program dan event spesial</p>
+            </div>
+            <div class="bg-gradient-to-br from-pink-500/20 to-transparent p-6 rounded-xl border border-pink-500/30">
+              <i class="fas fa-trophy text-pink-400 text-2xl mb-3"></i>
+              <h5 class="text-gold font-semibold mb-2">Reputasi & Kredibilitas</h5>
+              <p class="text-platinum opacity-90">Meningkatkan reputasi dan kredibilitas di dunia digital</p>
+            </div>
+            <div class="bg-gradient-to-br from-red-500/20 to-transparent p-6 rounded-xl border border-red-500/30">
+              <i class="fas fa-network-wired text-red-400 text-2xl mb-3"></i>
+              <h5 class="text-gold font-semibold mb-2">Jaringan Luas</h5>
+              <p class="text-platinum opacity-90">Akses ke jaringan partner terpercaya dan berpengalaman</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sanctions Section -->
+        <div class="mb-10">
+          <h4 class="text-3xl font-semibold text-red-400 mb-8 flex items-center justify-center">
+            <i class="fas fa-gavel mr-4"></i> Sanksi Penipuan
+          </h4>
+          <div class="bg-gradient-to-br from-red-900/30 to-transparent p-8 rounded-xl border border-red-500/30">
+            <p class="text-platinum opacity-90 mb-6 text-lg text-center leading-relaxed">
+              Kami menerapkan kebijakan <span class="text-red-400 font-bold">nol toleransi</span> terhadap aktivitas penipuan. 
+              Partner yang terbukti menipu klien akan dikenakan sanksi tegas:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <i class="fas fa-ban text-red-400 mr-3 mt-1"></i>
+                  <span class="text-platinum opacity-90">Penghentian Partner secara langsung</span>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-bullhorn text-red-400 mr-3 mt-1"></i>
+                  <span class="text-platinum opacity-90">Pengumuman publik atas aktivitas penipuan</span>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-lock text-red-400 mr-3 mt-1"></i>
+                  <span class="text-platinum opacity-90">Pemblokiran dari seluruh jaringan kami</span>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <i class="fas fa-balance-scale text-red-400 mr-3 mt-1"></i>
+                  <span class="text-platinum opacity-90">Tindakan hukum untuk kasus berat</span>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-list-alt text-red-400 mr-3 mt-1"></i>
+                  <span class="text-platinum opacity-90">Dimasukkan kedalam daftar hitam</span>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-times-circle text-red-400 mr-3 mt-1"></i>
+                  <span class="text-platinum opacity-90">Pembatalan seluruh biaya kemitraan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <a href="https://t.me/Alwaysaqioox" class="btn-primary px-12 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow inline-flex items-center text-xl hover-lift">
+            <i class="fab fa-telegram mr-3"></i> Chat Owner to Join Partnership
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section id="products" class="section">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Shopping Cart Icon -->
+    <div class="text-center mb-8">
+      <div class="w-20 h-20 rounded-full bg-gradient-to-br from-gold to-yellow-400 flex items-center justify-center mx-auto luxury-shadow animate-float animate-from-left show">
+        <i class="fas fa-shopping-cart text-3xl text-black"></i>
+      </div>
+    </div>
+
+    <div class="text-center mb-20">
+      <h2 class="world-class-title mb-6 animate-from-left show">
+        Premium Shop
+      </h2>
+      <div class="world-class-divider"></div>
+      <p class="world-class-subtitle max-w-5xl mx-auto animate-from-left-delayed show" style="animation-delay: 0.2s;">
+        Discover our exclusive collection of premium digital products and services
+      </p>
+    </div>
+
+    <!-- Scripts Category -->
+    <div class="product-category">
+      <div class="text-center mb-8">
+        <h3 class="text-4xl font-serif font-semibold text-gold flex items-center justify-center mb-4 animate-from-left show">
+          <i class="fas fa-code mr-4"></i> Premium Scripts
+        </h3>
+        <p class="text-platinum opacity-80 text-lg">Advanced automation and bug scripts</p>
+      </div>
+      
+      <div class="product-row">
+      
+        <!-- Product 1 - Script Qio V25 -->
+        <div class="product-card-medium animate" style="animation-delay: 0.1s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Script Qio V25
+                    <span class="ml-2 px-2 py-1 bg-emerald bg-opacity-20 text-emerald text-xs rounded-full font-medium">
+                      <i class="fas fa-star mr-1"></i>NEW
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Premium Edition</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-2xl font-bold text-gold">Rp100.000</span>
+                  <span class="text-sm text-platinum opacity-80 block">$13 USD</span>
+                </div>
+              </div>
+              
+              <button onclick="toggleDesc('desc-sc2')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+              
+              <div id="desc-sc2" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">QIO V25 - Ultimate Solution</h5>
+                  
+                  <div class="bg-gradient-to-r from-neon-cyan/10 to-transparent p-3 rounded-lg border-l-2 border-neon-cyan">
+                    <h6 class="font-semibold text-neon-cyan text-sm mb-2">🚀 BUG FORCE</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• TEMBUS WA BETA NEW</li>
+                      <li>• TEMBUS WA TERBARU</li>
+                      <li>• TEMBUS NOTICE UI</li>
+                      <li>• ADA BANYAK TYPE MESSAGE</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-gradient-to-r from-gold/10 to-transparent p-3 rounded-lg border-l-2 border-gold">
+                    <h6 class="font-semibold text-gold text-sm mb-2">🔥 KEY FEATURES</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• FULL BUG CAPABILITIES</li>
+                      <li>• NEW FITUR & TAMPILAN</li>
+                      <li>• FAST RESPONSE PURCHASE</li>
+                      <li>• DATABASE SECURITY ONLY</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/buyqiov25_bot" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Purchase Bot
+              </a>
+              <button onclick="openYoutube('https://youtu.be/2HKkgG4Oq1E?si=bV0DvH1T84pcCoCH')" class="px-4 py-3 border-2 border-gold text-gold font-bold rounded-full hover:bg-gold hover:text-black transition duration-300 hover-lift text-sm">
+                <i class="fas fa-play mr-2"></i> Demo Video
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 1 - Script Qio V24 -->
+        <div class="product-card-medium animate" style="animation-delay: 0.1s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Script Qio V24 
+                    <span class="ml-2 px-2 py-1 bg-emerald bg-opacity-20 text-emerald text-xs rounded-full font-medium">
+                      <i class="fas fa-star mr-1"></i>NEW
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Premium Edition</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-2xl font-bold text-gold">Rp100.000</span>
+                  <span class="text-sm text-platinum opacity-80 block">$13 USD</span>
+                </div>
+              </div>
+              
+              <button onclick="toggleDesc('desc-sc2')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+              
+              <div id="desc-sc2" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">QIO V24 - Ultimate Solution</h5>
+                  
+                  <div class="bg-gradient-to-r from-neon-cyan/10 to-transparent p-3 rounded-lg border-l-2 border-neon-cyan">
+                    <h6 class="font-semibold text-neon-cyan text-sm mb-2">🚀 BUG FORCE</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• TEMBUS WA BETA NEW</li>
+                      <li>• TEMBUS WA TERBARU</li>
+                      <li>• TEMBUS NOTICE UI</li>
+                      <li>• ADA BANYAK TYPE MESSAGE</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-gradient-to-r from-gold/10 to-transparent p-3 rounded-lg border-l-2 border-gold">
+                    <h6 class="font-semibold text-gold text-sm mb-2">🔥 KEY FEATURES</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• FULL BUG CAPABILITIES</li>
+                      <li>• NEW FITUR & TAMPILAN</li>
+                      <li>• FAST RESPONSE PURCHASE</li>
+                      <li>• DATABASE SECURITY ONLY</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/buyscqiov24_bot" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Purchase Bot
+              </a>
+              <button onclick="openYoutube('https://youtu.be/0oI10NwaVA8?si=MFrJdUHVxdZzHZ32')" class="px-4 py-3 border-2 border-gold text-gold font-bold rounded-full hover:bg-gold hover:text-black transition duration-300 hover-lift text-sm">
+                <i class="fas fa-play mr-2"></i> Demo Video
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 - Script Qio V23 -->
+        <div class="product-card-medium animate" style="animation-delay: 0.2s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Script Qioo V23 
+                    <span class="ml-2 px-2 py-1 bg-sapphire bg-opacity-20 text-sapphire text-xs rounded-full font-medium">
+                      <i class="fas fa-shield-alt mr-1"></i>STABLE
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Proven Solution</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-2xl font-bold text-gold">Rp100.000</span>
+                  <span class="text-sm text-platinum opacity-80 block">$13 USD</span>
+                </div>
+              </div>
+              
+              <button onclick="toggleDesc('desc-sc1')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+              
+              <div id="desc-sc1" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">QIO V23 - Reliable Solution</h5>
+                  
+                  <div class="bg-gradient-to-r from-sapphire/10 to-transparent p-3 rounded-lg border-l-2 border-sapphire">
+                    <h6 class="font-semibold text-sapphire text-sm mb-2">🔒 BUG FORCE CLOSE</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• TEMBUS WA BETA NEW</li>
+                      <li>• TEMBUS WA TERBARU</li>
+                      <li>• TEMBUS HAPUS DATA</li>
+                      <li>• NEW FUNCTION</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-gradient-to-r from-gold/10 to-transparent p-3 rounded-lg border-l-2 border-gold">
+                    <h6 class="font-semibold text-gold text-sm mb-2">🎯 KEY FEATURES</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• NEW FITUR & TAMPILAN</li>
+                      <li>• FAST RESPONSE PURCHASE</li>
+                      <li>• DATABASE SECURITY ONLY</li>
+                      <li>• CHANGE NO/IP PANEL</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/buyscqiov23_bot" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Purchase Bot
+              </a>
+              <button onclick="openYoutube('https://youtu.be/k0nzxFCJGks?si=8U2GoSnnDI059LYg')" class="px-4 py-3 border-2 border-gold text-gold font-bold rounded-full hover:bg-gold hover:text-black transition duration-300 hover-lift text-sm">
+                <i class="fas fa-play mr-2"></i> Demo Video
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 - Script Qio V22 -->
+        <div class="product-card-medium animate" style="animation-delay: 0.3s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Script Qio V22 
+                    <span class="ml-2 px-2 py-1 bg-purple-500 bg-opacity-20 text-purple-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-crown mr-1"></i>CLASSIC
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Classic Edition</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-2xl font-bold text-gold">Rp75.000</span>
+                  <span class="text-sm text-platinum opacity-80 block">$10 USD</span>
+                </div>
+              </div>
+              
+              <button onclick="toggleDesc('desc-sc3')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+              
+              <div id="desc-sc3" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">QIO V22 - Classic Power</h5>
+                  
+                  <div class="bg-gradient-to-r from-purple-500/10 to-transparent p-3 rounded-lg border-l-2 border-purple-500">
+                    <h6 class="font-semibold text-purple-400 text-sm mb-2">⚡ CLASSIC FORCE</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• TEMBUS WA CLASSIC</li>
+                      <li>• STABLE PERFORMANCE</li>
+                      <li>• RELIABLE FUNCTIONS</li>
+                      <li>• TESTED & PROVEN</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Purchase
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 - Script Bot WhatsApp -->
+        <div class="product-card-medium animate" style="animation-delay: 0.4s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Bot WhatsApp 
+                    <span class="ml-2 px-2 py-1 bg-green-500 bg-opacity-20 text-green-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-robot mr-1"></i>BOT
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Automation Bot</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-xl font-bold text-gold">From Rp50k</span>
+                  <span class="text-sm text-platinum opacity-80 block">Custom Features</span>
+                </div>
+              </div>
+              
+              <button onclick="toggleDesc('desc-bot1')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+              
+              <div id="desc-bot1" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">WhatsApp Bot Features</h5>
+                  
+                  <div class="bg-gradient-to-r from-green-500/10 to-transparent p-3 rounded-lg border-l-2 border-green-500">
+                    <h6 class="font-semibold text-green-400 text-sm mb-2">🤖 BOT FEATURES</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Auto Reply Messages</li>
+                      <li>• Group Management</li>
+                      <li>• Custom Commands</li>
+                      <li>• Media Download</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Order Bot
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Encryption Tools Category -->
+    <div class="product-category">
+      <div class="text-center mb-8">
+        <h3 class="text-4xl font-serif font-semibold text-gold flex items-center justify-center mb-4 animate-from-left show">
+          <i class="fas fa-shield-alt mr-4"></i> Encryption Tools
+        </h3>
+        <p class="text-platinum opacity-80 text-lg">Advanced code protection and obfuscation</p>
+      </div>
+      
+      <div class="product-row">
+        <!-- Tool 1 - Encrypt Tool Hard Level -->
+        <div class="product-card-medium animate" style="animation-delay: 0.1s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Encrypt Tool Hard
+                    <span class="ml-2 px-2 py-1 bg-red-500 bg-opacity-20 text-red-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-fire mr-1"></i>HARD
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Best Edition</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-2xl font-bold text-gold">Rp50.000</span>
+                  <span class="text-sm text-platinum opacity-80 block">$10 USD</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-tl1')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-tl1" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">Encryption Tool - Hard Level</h5>
+                  
+                  <div class="bg-gradient-to-r from-red-500/10 to-transparent p-3 rounded-lg border-l-2 border-red-500">
+                    <h6 class="font-semibold text-red-400 text-sm mb-2">🔐 SECURITY</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Unhackable code protection</li>
+                      <li>• Cannot be decrypted</li>
+                      <li>• Code authenticity hidden</li>
+                      <li>• Advanced obfuscation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Purchase
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 2 - Encrypt Tool Medium Level -->
+        <div class="product-card-medium animate" style="animation-delay: 0.2s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Encrypt Tool Medium
+                    <span class="ml-2 px-2 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-shield-alt mr-1"></i>MEDIUM
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Good Edition</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-2xl font-bold text-gold">Rp25.000</span>
+                  <span class="text-sm text-platinum opacity-80 block">$5 USD</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-tl2')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-tl2" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">Encryption Tool - Medium Level</h5>
+                  
+                  <div class="bg-gradient-to-r from-yellow-500/10 to-transparent p-3 rounded-lg border-l-2 border-yellow-500">
+                    <h6 class="font-semibold text-yellow-400 text-sm mb-2">🛡️ PROTECTION</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Very hard to read code</li>
+                      <li>• Hard to decrypt</li>
+                      <li>• 87% safe protection</li>
+                      <li>• Balanced performance</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Purchase
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 3 - Encrypt Tool Basic Level -->
+        <div class="product-card-medium animate" style="animation-delay: 0.3s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Encrypt Tool Basic
+                    <span class="ml-2 px-2 py-1 bg-blue-500 bg-opacity-20 text-blue-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-lock mr-1"></i>BASIC
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Basic Edition</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-2xl font-bold text-gold">Rp15.000</span>
+                  <span class="text-sm text-platinum opacity-80 block">$3 USD</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-tl3')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-tl3" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">Encryption Tool - Basic Level</h5>
+                  
+                  <div class="bg-gradient-to-r from-blue-500/10 to-transparent p-3 rounded-lg border-l-2 border-blue-500">
+                    <h6 class="font-semibold text-blue-400 text-sm mb-2">🔒 BASIC PROTECTION</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Basic code obfuscation</li>
+                      <li>• Simple encryption</li>
+                      <li>• 60% protection level</li>
+                      <li>• Fast processing</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Purchase
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 4 - Advanced Obfuscator -->
+        <div class="product-card-medium animate" style="animation-delay: 0.4s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Advanced Obfuscator
+                    <span class="ml-2 px-2 py-1 bg-purple-500 bg-opacity-20 text-purple-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-magic mr-1"></i>PRO
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Professional</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-2xl font-bold text-gold">Rp75.000</span>
+                  <span class="text-sm text-platinum opacity-80 block">$12 USD</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-tl4')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-tl4" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">Advanced Code Obfuscation</h5>
+                  
+                  <div class="bg-gradient-to-r from-purple-500/10 to-transparent p-3 rounded-lg border-l-2 border-purple-500">
+                    <h6 class="font-semibold text-purple-400 text-sm mb-2">🎭 OBFUSCATION</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Multi-layer obfuscation</li>
+                      <li>• Variable name scrambling</li>
+                      <li>• Control flow flattening</li>
+                      <li>• Dead code injection</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Purchase
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 5 - Code Minifier -->
+        <div class="product-card-medium animate" style="animation-delay: 0.5s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Code Minifier
+                    <span class="ml-2 px-2 py-1 bg-green-500 bg-opacity-20 text-green-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-compress mr-1"></i>MINI
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Compression Tool</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-2xl font-bold text-gold">Rp20.000</span>
+                  <span class="text-sm text-platinum opacity-80 block">$4 USD</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-tl5')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-tl5" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">Advanced Code Minification</h5>
+                  
+                  <div class="bg-gradient-to-r from-green-500/10 to-transparent p-3 rounded-lg border-l-2 border-green-500">
+                    <h6 class="font-semibold text-green-400 text-sm mb-2">📦 COMPRESSION</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Remove whitespace & comments</li>
+                      <li>• Shorten variable names</li>
+                      <li>• Optimize code structure</li>
+                      <li>• Reduce file size 80%+</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Purchase
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Category -->
+    <div class="product-category">
+      <div class="text-center mb-8">
+        <h3 class="text-4xl font-serif font-semibold text-gold flex items-center justify-center mb-4 animate-from-left show">
+          <i class="fas fa-cogs mr-4"></i> Professional Services
+        </h3>
+        <p class="text-platinum opacity-80 text-lg">Expert development and support services</p>
+      </div>
+      
+      <div class="product-row">
+        <!-- Service 1 - Recber/Mc -->
+        <div class="product-card-medium animate" style="animation-delay: 0.1s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Recber/Mc Service
+                    <span class="ml-2 px-2 py-1 bg-emerald bg-opacity-20 text-emerald text-xs rounded-full font-medium">
+                      <i class="fas fa-shield-check mr-1"></i>TRUST
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Trusted Service</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-xl font-bold text-gold">Rp2k - 20k</span>
+                  <span class="text-sm text-platinum opacity-80 block">Flexible</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-serv1')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-serv1" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">Middleman Service</h5>
+                  
+                  <div class="bg-gradient-to-r from-emerald/10 to-transparent p-3 rounded-lg border-l-2 border-emerald">
+                    <h6 class="font-semibold text-emerald text-sm mb-2">🛡️ SECURITY</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• 100% safe from fraud</li>
+                      <li>• Guaranteed transactions</li>
+                      <li>• Professional support 24/7</li>
+                      <li>• Affordable fees</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Contact
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 - Fix JavaScript Error -->
+        <div class="product-card-medium animate" style="animation-delay: 0.2s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Fix JS Error
+                    <span class="ml-2 px-2 py-1 bg-blue-500 bg-opacity-20 text-blue-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-code mr-1"></i>EXPERT
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Expert Service</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-xl font-bold text-gold">From Rp8k</span>
+                  <span class="text-sm text-platinum opacity-80 block">Based on complexity</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-serv2')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-serv2" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">JavaScript Error Fixing</h5>
+                  
+                  <div class="bg-gradient-to-r from-blue-500/10 to-transparent p-3 rounded-lg border-l-2 border-blue-500">
+                    <h6 class="font-semibold text-blue-400 text-sm mb-2">🔧 SERVICE</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Fix all JS errors</li>
+                      <li>• Professional debugging</li>
+                      <li>• Code optimization</li>
+                      <li>• Fast resolution</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Get Help
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 - Creating Bot Scripts -->
+        <div class="product-card-medium animate" style="animation-delay: 0.3s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Bot Scripts
+                    <span class="ml-2 px-2 py-1 bg-purple-500 bg-opacity-20 text-purple-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-robot mr-1"></i>CUSTOM
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Custom Development</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-xl font-bold text-gold">From Rp50k</span>
+                  <span class="text-sm text-platinum opacity-80 block">Custom Quote</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-serv3')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-serv3" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">Custom Bot Development</h5>
+                  
+                  <div class="bg-gradient-to-r from-purple-500/10 to-transparent p-3 rounded-lg border-l-2 border-purple-500">
+                    <h6 class="font-semibold text-purple-400 text-sm mb-2">🤖 CUSTOM</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• WhatsApp/Telegram bots</li>
+                      <li>• Custom features</li>
+                      <li>• Personalized branding</li>
+                      <li>• Professional code</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Order Bot
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4 - Website Development -->
+        <div class="product-card-medium animate" style="animation-delay: 0.4s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Website Development
+                    <span class="ml-2 px-2 py-1 bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-globe mr-1"></i>WEB
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Full Stack</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-xl font-bold text-gold">From Rp200k</span>
+                  <span class="text-sm text-platinum opacity-80 block">Custom Project</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-serv4')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-serv4" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">Professional Web Development</h5>
+                  
+                  <div class="bg-gradient-to-r from-cyan-500/10 to-transparent p-3 rounded-lg border-l-2 border-cyan-500">
+                    <h6 class="font-semibold text-cyan-400 text-sm mb-2">🌐 WEB SERVICES</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Responsive design</li>
+                      <li>• Modern frameworks</li>
+                      <li>• SEO optimization</li>
+                      <li>• Fast loading speed</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Order Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5 - Code Review -->
+        <div class="product-card-medium animate" style="animation-delay: 0.5s;">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <div class="flex flex-col justify-between mb-6">
+                <div>
+                  <h4 class="text-xl font-semibold text-gold mb-3 flex items-center">
+                    Code Review
+                    <span class="ml-2 px-2 py-1 bg-orange-500 bg-opacity-20 text-orange-400 text-xs rounded-full font-medium">
+                      <i class="fas fa-search mr-1"></i>AUDIT
+                    </span>
+                  </h4>
+                  <div class="flex items-center mb-2">
+                    <div class="text-gold mr-3">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="text-platinum opacity-80 font-medium text-sm">Quality Assurance</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-xl font-bold text-gold">From Rp30k</span>
+                  <span class="text-sm text-platinum opacity-80 block">Per Review</span>
+                </div>
+              </div>
+
+              <button onclick="toggleDesc('desc-serv5')" class="flex items-center text-gold hover:text-yellow-400 transition duration-300 mb-4 font-medium text-sm">
+                <span>View Details</span>
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+
+              <div id="desc-serv5" class="hidden text-platinum opacity-90 mb-6 text-sm">
+                <div class="space-y-3">
+                  <h5 class="font-bold text-lg text-gold">Professional Code Review</h5>
+                  
+                  <div class="bg-gradient-to-r from-orange-500/10 to-transparent p-3 rounded-lg border-l-2 border-orange-500">
+                    <h6 class="font-semibold text-orange-400 text-sm mb-2">🔍 AUDIT</h6>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Security vulnerability check</li>
+                      <li>• Performance optimization</li>
+                      <li>• Best practices review</li>
+                      <li>• Detailed report</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-auto">
+              <a href="https://t.me/Alwaysaqioox" class="btn-primary px-4 py-3 text-black font-bold rounded-full hover:opacity-90 transition duration-300 text-center luxury-shadow hover-lift text-sm">
+                <i class="fab fa-telegram mr-2"></i> Get Review
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Payment Section -->
+<section id="payment" class="section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <h2 class="world-class-title mb-6 animate-from-left show">
+        Payment Methods
+      </h2>
+      <div class="world-class-divider"></div>
+      <p class="world-class-subtitle max-w-5xl mx-auto animate-from-left-delayed show" style="animation-delay: 0.2s;">
+        Secure and convenient payment options for all your digital needs
+      </p>
+    </div>
+
+    <div class="world-class-grid">
+      <!-- Dana Payment -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.1s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fas fa-mobile-alt text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">DANA</h3>
+          <p class="text-platinum opacity-90">Digital wallet payment</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-blue-500/10 to-transparent p-6 rounded-xl border border-blue-500/30">
+            <h4 class="text-xl font-semibold text-blue-400 mb-3">Payment Details</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Number:</span> 085174667722</p>
+              <p><span class="text-gold font-medium">Name:</span> ALWAYSAQIOO</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button onclick="copyToClipboard('085174667722')" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fas fa-copy mr-2"></i> Copy Number
+          </button>
+        </div>
+      </div>
+
+      <!-- QRIS Payment -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.2s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fas fa-qrcode text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">QRIS</h3>
+          <p class="text-platinum opacity-90">Universal QR payment</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-green-500/10 to-transparent p-6 rounded-xl border border-green-500/30">
+            <h4 class="text-xl font-semibold text-green-400 mb-3">Payment Details</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Merchant:</span> ALWAYSAQIOO</p>
+              <p><span class="text-gold font-medium">Support:</span> All E-Wallets</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://t.me/Alwaysaqioox" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-telegram mr-2"></i> Request QR
+          </a>
+        </div>
+      </div>
+
+      <!-- Crypto Payment -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.3s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fab fa-bitcoin text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">Cryptocurrency</h3>
+          <p class="text-platinum opacity-90">Digital currency payments</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-yellow-500/10 to-transparent p-6 rounded-xl border border-yellow-500/30">
+            <h4 class="text-xl font-semibold text-yellow-400 mb-3">Supported Coins</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Bitcoin (BTC)</span></p>
+              <p><span class="text-gold font-medium">Ethereum (ETH)</span></p>
+              <p><span class="text-gold font-medium">USDT (TRC20/ERC20)</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://t.me/Alwaysaqioox" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-telegram mr-2"></i> Get Address
+          </a>
+        </div>
+      </div>
+
+      <!-- Bank Transfer -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.4s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fas fa-university text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">Bank Transfer</h3>
+          <p class="text-platinum opacity-90">Traditional banking</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-red-500/10 to-transparent p-6 rounded-xl border border-red-500/30">
+            <h4 class="text-xl font-semibold text-red-400 mb-3">Available Banks</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">BCA, BNI, BRI</span></p>
+              <p><span class="text-gold font-medium">Mandiri, CIMB</span></p>
+              <p><span class="text-gold font-medium">BSI, Permata</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://t.me/Alwaysaqioox" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-telegram mr-2"></i> Get Details
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Media Section -->
+<section id="social" class="section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <h2 class="world-class-title mb-6 animate-from-left show">
+        Connect With Us
+      </h2>
+      <div class="world-class-divider"></div>
+      <p class="world-class-subtitle max-w-5xl mx-auto animate-from-left-delayed show" style="animation-delay: 0.2s;">
+        Stay connected and follow our latest updates across all social platforms
+      </p>
+    </div>
+
+    <div class="world-class-grid">
+      <!-- Telegram -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.1s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fab fa-telegram text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">Telegram</h3>
+          <p class="text-platinum opacity-90">Direct communication</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-blue-500/10 to-transparent p-6 rounded-xl border border-blue-500/30">
+            <h4 class="text-xl font-semibold text-blue-400 mb-3">Contact Info</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Owner:</span> @Alwaysaqioox</p>
+              <p><span class="text-gold font-medium">Support:</span> 24/7 Available</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://t.me/Alwaysaqioox" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-telegram mr-2"></i> Chat Now
+          </a>
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.2s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fab fa-whatsapp text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">WhatsApp</h3>
+          <p class="text-platinum opacity-90">Instant messaging</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-green-500/10 to-transparent p-6 rounded-xl border border-green-500/30">
+            <h4 class="text-xl font-semibold text-green-400 mb-3">Contact Info</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Number:</span> +628xxx</p>
+              <p><span class="text-gold font-medium">Hours:</span> 24/7 Support</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://wa.me/62xxx" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-whatsapp mr-2"></i> Chat WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- YouTube -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.3s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fab fa-youtube text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">YouTube</h3>
+          <p class="text-platinum opacity-90">Video tutorials & demos</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-red-500/10 to-transparent p-6 rounded-xl border border-red-500/30">
+            <h4 class="text-xl font-semibold text-red-400 mb-3">Channel Info</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Channel:</span> Alwaysaqioo Official</p>
+              <p><span class="text-gold font-medium">Content:</span> Tutorials & Reviews</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://youtube.com/@alwaysaqioo" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-youtube mr-2"></i> Subscribe
+          </a>
+        </div>
+      </div>
+
+      <!-- GitHub -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.4s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fab fa-github text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">GitHub</h3>
+          <p class="text-platinum opacity-90">Open source projects</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-gray-500/10 to-transparent p-6 rounded-xl border border-gray-500/30">
+            <h4 class="text-xl font-semibold text-gray-400 mb-3">Repository Info</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Profile:</span> @alwaysaqioo</p>
+              <p><span class="text-gold font-medium">Projects:</span> Open Source</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://github.com/alwaysaqioo" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-github mr-2"></i> Follow
+          </a>
+        </div>
+      </div>
+
+      <!-- Instagram -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.5s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fab fa-instagram text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">Instagram</h3>
+          <p class="text-platinum opacity-90">Visual content & updates</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-pink-500/10 to-transparent p-6 rounded-xl border border-pink-500/30">
+            <h4 class="text-xl font-semibold text-pink-400 mb-3">Profile Info</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Handle:</span> @alwaysaqioo</p>
+              <p><span class="text-gold font-medium">Content:</span> Behind the scenes</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://instagram.com/alwaysaqioo" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-instagram mr-2"></i> Follow
+          </a>
+        </div>
+      </div>
+
+      <!-- Discord -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.6s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fab fa-discord text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">Discord</h3>
+          <p class="text-platinum opacity-90">Community & support</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-indigo-500/10 to-transparent p-6 rounded-xl border border-indigo-500/30">
+            <h4 class="text-xl font-semibold text-indigo-400 mb-3">Server Info</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Server:</span> QIO Community</p>
+              <p><span class="text-gold font-medium">Members:</span> 500+ Active</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://discord.gg/alwaysaqioo" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-discord mr-2"></i> Join Server
+          </a>
+        </div>
+      </div>
+
+      <!-- TikTok -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.7s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-black to-gray-800 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fab fa-tiktok text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">TikTok</h3>
+          <p class="text-platinum opacity-90">Short form content</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-gray-500/10 to-transparent p-6 rounded-xl border border-gray-500/30">
+            <h4 class="text-xl font-semibold text-gray-400 mb-3">Profile Info</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Handle:</span> @alwaysaqioo</p>
+              <p><span class="text-gold font-medium">Content:</span> Tech Tips & Tricks</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://tiktok.com/@alwaysaqioo" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-tiktok mr-2"></i> Follow
+          </a>
+        </div>
+      </div>
+
+      <!-- Twitter/X -->
+      <div class="world-class-product-card animate" style="animation-delay: 0.8s;">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+            <i class="fab fa-twitter text-3xl text-white"></i>
+          </div>
+          <h3 class="text-3xl font-semibold text-gold mb-4">Twitter / X</h3>
+          <p class="text-platinum opacity-90">Latest updates & news</p>
+        </div>
+        
+        <div class="space-y-4 mb-8">
+          <div class="bg-gradient-to-r from-blue-500/10 to-transparent p-6 rounded-xl border border-blue-500/30">
+            <h4 class="text-xl font-semibold text-blue-400 mb-3">Profile Info</h4>
+            <div class="space-y-2 text-platinum">
+              <p><span class="text-gold font-medium">Handle:</span> @alwaysaqioo</p>
+              <p><span class="text-gold font-medium">Content:</span> Tech News & Updates</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="https://twitter.com/alwaysaqioo" class="btn-primary px-8 py-4 text-black font-bold rounded-full hover:opacity-90 transition duration-300 luxury-shadow hover-lift">
+            <i class="fab fa-twitter mr-2"></i> Follow
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Media Stats -->
+    <div class="mt-20">
+      <div class="world-class-product-card animate" style="animation-delay: 0.9s; min-height: auto;">
+        <h3 class="text-3xl font-serif font-semibold text-gold text-center mb-8">
+          <i class="fas fa-chart-line mr-4"></i> Social Media Reach
+        </h3>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-gold mb-2">10K+</div>
+            <div class="text-platinum opacity-90">Telegram Followers</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-gold mb-2">5K+</div>
+            <div class="text-platinum opacity-90">YouTube Subscribers</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-gold mb-2">3K+</div>
+            <div class="text-platinum opacity-90">Instagram Followers</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-gold mb-2">500+</div>
+            <div class="text-platinum opacity-90">Discord Members</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Coding Section -->
+<section id="coding" class="section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <h2 class="world-class-title mb-6 animate-from-left show">
+        Coding Expertise
+      </h2>
+      <div class="world-class-divider"></div>
+      <p class="world-class-subtitle max-w-5xl mx-auto animate-from-left-delayed show" style="animation-delay: 0.2s;">
+        Mastering multiple programming languages and cutting-edge technologies
+      </p>
+    </div>
+
+    <!-- Programming Languages -->
+    <div class="mb-16">
+      <h3 class="text-4xl font-serif font-semibold text-gold text-center mb-12 animate-from-left show">
+        <i class="fas fa-code mr-4"></i> Programming Languages
+      </h3>
+      
+      <div class="world-class-grid">
+        <!-- JavaScript -->
+        <div class="world-class-product-card animate" style="animation-delay: 0.1s;">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+              <i class="fab fa-js-square text-3xl text-black"></i>
+            </div>
+            <h4 class="text-2xl font-semibold text-gold mb-4">JavaScript</h4>
+            <div class="flex justify-center mb-4">
+              <div class="text-gold">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-yellow-500/10 to-transparent p-4 rounded-lg border border-yellow-500/30">
+              <h5 class="font-semibold text-yellow-400 mb-2">Expertise Level: Expert</h5>
+              <ul class="space-y-1 text-platinum opacity-90 text-sm">
+                <li>• Node.js & Express.js</li>
+                <li>• React.js & Vue.js</li>
+                <li>• ES6+ Modern JavaScript</li>
+                <li>• Async/Await & Promises</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="world-class-product-card animate" style="animation-delay: 0.2s;">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+              <i class="fab fa-python text-3xl text-white"></i>
+            </div>
+            <h4 class="text-2xl font-semibold text-gold mb-4">Python</h4>
+            <div class="flex justify-center mb-4">
+              <div class="text-gold">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-blue-500/10 to-transparent p-4 rounded-lg border border-blue-500/30">
+              <h5 class="font-semibold text-blue-400 mb-2">Expertise Level: Advanced</h5>
+              <ul class="space-y-1 text-platinum opacity-90 text-sm">
+                <li>• Django & Flask</li>
+                <li>• Data Science & AI</li>
+                <li>• Automation Scripts</li>
+                <li>• Web Scraping</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHP -->
+        <div class="world-class-product-card animate" style="animation-delay: 0.3s;">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+              <i class="fab fa-php text-3xl text-white"></i>
+            </div>
+            <h4 class="text-2xl font-semibold text-gold mb-4">PHP</h4>
+            <div class="flex justify-center mb-4">
+              <div class="text-gold">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-purple-500/10 to-transparent p-4 rounded-lg border border-purple-500/30">
+              <h5 class="font-semibold text-purple-400 mb-2">Expertise Level: Intermediate</h5>
+              <ul class="space-y-1 text-platinum opacity-90 text-sm">
+                <li>• Laravel Framework</li>
+                <li>• MySQL Database</li>
+                <li>• RESTful APIs</li>
+                <li>• MVC Architecture</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML/CSS -->
+        <div class="world-class-product-card animate" style="animation-delay: 0.4s;">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+              <i class="fab fa-html5 text-3xl text-white"></i>
+            </div>
+            <h4 class="text-2xl font-semibold text-gold mb-4">HTML/CSS</h4>
+            <div class="flex justify-center mb-4">
+              <div class="text-gold">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-orange-500/10 to-transparent p-4 rounded-lg border border-orange-500/30">
+              <h5 class="font-semibold text-orange-400 mb-2">Expertise Level: Expert</h5>
+              <ul class="space-y-1 text-platinum opacity-90 text-sm">
+                <li>• Responsive Design</li>
+                <li>• CSS3 Animations</li>
+                <li>• Flexbox & Grid</li>
+                <li>• SASS/SCSS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Java -->
+        <div class="world-class-product-card animate" style="animation-delay: 0.5s;">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+              <i class="fab fa-java text-3xl text-white"></i>
+            </div>
+            <h4 class="text-2xl font-semibold text-gold mb-4">Java</h4>
+            <div class="flex justify-center mb-4">
+              <div class="text-gold">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-red-500/10 to-transparent p-4 rounded-lg border border-red-500/30">
+              <h5 class="font-semibold text-red-400 mb-2">Expertise Level: Intermediate</h5>
+              <ul class="space-y-1 text-platinum opacity-90 text-sm">
+                <li>• Spring Framework</li>
+                <li>• Android Development</li>
+                <li>• Object-Oriented Programming</li>
+                <li>• Maven & Gradle</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- C++ -->
+        <div class="world-class-product-card animate" style="animation-delay: 0.6s;">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+              <i class="fas fa-code text-3xl text-white"></i>
+            </div>
+            <h4 class="text-2xl font-semibold text-gold mb-4">C++</h4>
+            <div class="flex justify-center mb-4">
+              <div class="text-gold">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-blue-500/10 to-transparent p-4 rounded-lg border border-blue-500/30">
+              <h5 class="font-semibold text-blue-400 mb-2">Expertise Level: Beginner</h5>
+              <ul class="space-y-1 text-platinum opacity-90 text-sm">
+                <li>• Basic Syntax & Logic</li>
+                <li>• Data Structures</li>
+                <li>• Algorithm Implementation</li>
+                <li>• Memory Management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL -->
+        <div class="world-class-product-card animate" style="animation-delay: 0.7s;">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+              <i class="fas fa-database text-3xl text-white"></i>
+            </div>
+            <h4 class="text-2xl font-semibold text-gold mb-4">SQL</h4>
+            <div class="flex justify-center mb-4">
+              <div class="text-gold">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-green-500/10 to-transparent p-4 rounded-lg border border-green-500/30">
+              <h5 class="font-semibold text-green-400 mb-2">Expertise Level: Intermediate</h5>
+              <ul class="space-y-1 text-platinum opacity-90 text-sm">
+                <li>• MySQL & PostgreSQL</li>
+                <li>• Complex Queries</li>
+                <li>• Database Design</li>
+                <li>• Performance Optimization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bash/Shell -->
+        <div class="world-class-product-card animate" style="animation-delay: 0.8s;">
+          <div class="text-center mb-8">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center mx-auto mb-6 luxury-shadow">
+              <i class="fas fa-terminal text-3xl text-white"></i>
+            </div>
+            <h4 class="text-2xl font-semibold text-gold mb-4">Bash/Shell</h4>
+            <div class="flex justify-center mb-4">
+              <div class="text-gold">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-gray-500/10 to-transparent p-4 rounded-lg border border-gray-500/30">
+              <h5 class="font-semibold text-gray-400 mb-2">Expertise Level: Advanced</h5>
+              <ul class="space-y-1 text-platinum opacity-90 text-sm">
+                <li>• Linux System Administration</li>
+                <li>• Automation Scripts</li>
+                <li>• Server Management</li>
+                <li>• DevOps Tools</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Development Tools -->
+    <div class="mb-16">
+      <h3 class="text-4xl font-serif font-semibold text-gold text-center mb-12 animate-from-left show">
+        <i class="fas fa-tools mr-4"></i> Development Tools & Frameworks
+      </h3>
+      
+      <div class="world-class-grid">
+        <!-- Git/GitHub -->
+        <div class="world-class-product-card animate" style="animation-delay: 0.9s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center mx-auto mb-4 luxury-shadow">
+              <i class="fab fa-git-alt text-2xl text-white"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-gold">Git & GitHub</h4>
+          </div>
+          <p class="text-platinum opacity-90 text-sm text-center">Version control and collaboration</p>
+        </div>
+        
+        <!--- URL GITHUB Comvert --->
+<div class="mb-16">
+  <h3 class="text-4xl font-serif font-semibold text-gold text-center mb-12 animate-from-left show">
+    <i class="fas fa-tools mr-4"></i> GitHub URL Converter
+  </h3>
+
+  <div class="world-class-grid">
+    <input type="text" id="inputUrl" placeholder="Masukkan URL GitHub..." class="p-2 border rounded w-full mb-4">
+
+    <!-- Tombol-tombol tersusun vertikal -->
+    <div class="flex flex-col gap-2 mb-4">
+      <button onclick="convertToGithub()" class="border border-yellow-400 text-yellow-400 px-4 py-2 rounded hover:bg-yellow-100">
+        github.com
+      </button>
+      <button onclick="convertToRaw()" class="border border-yellow-400 text-yellow-400 px-4 py-2 rounded hover:bg-yellow-100">
+        raw.githubusercontent.com
+      </button>
+      <button onclick="convertToApi()" class="border border-yellow-400 text-yellow-400 px-4 py-2 rounded hover:bg-yellow-100">
+        api.github.com
+      </button>
+    </div>
+
+    <h3 class="font-semibold mb-2">Hasil:</h3>
+    <input type="text" id="outputUrl" readonly class="p-2 border rounded w-full bg-gray-100 text-black">
+  </div>
+
+  <script>
+    function convertToGithub() {
+      let url = document.getElementById("inputUrl").value.trim();
+      let output = url.replace(/raw\.githubusercontent\.com|api\.github\.com|github\.com/g, "github.com");
+      document.getElementById("outputUrl").value = output;
+    }
+
+    function convertToRaw() {
+      let url = document.getElementById("inputUrl").value.trim();
+      let rawUrl = url
+        .replace("https://github.com/", "https://raw.githubusercontent.com/")
+        .replace("/blob/", "/");
+      rawUrl = rawUrl.replace(/api\.github\.com|github\.com|raw\.githubusercontent\.com/g, "raw.githubusercontent.com");
+      document.getElementById("outputUrl").value = rawUrl;
+    }
+
+    function convertToApi() {
+      let url = document.getElementById("inputUrl").value.trim();
+      let match = url.match(/github\.com\/([^\/]+)\/([^\/]+)(\/|$)/);
+      if (match) {
+        let user = match[1];
+        let repo = match[2];
+        let apiUrl = `https://api.github.com/repos/${user}/${repo}`;
+        document.getElementById("outputUrl").value = apiUrl;
+      } else {
+        document.getElementById("outputUrl").value = "URL tidak valid untuk API.";
+      }
+    }
+  </script>
+</div>
+
+        <!-- VS Code -->
+        <div class="world-class-product-card animate" style="animation-delay: 1.0s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mx-auto mb-4 luxury-shadow">
+              <i class="fas fa-code text-2xl text-white"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-gold">VS Code</h4>
+          </div>
+          <p class="text-platinum opacity-90 text-sm text-center">Primary development environment</p>
+        </div>
+
+        <!-- Docker -->
+        <div class="world-class-product-card animate" style="animation-delay: 1.1s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center mx-auto mb-4 luxury-shadow">
+              <i class="fab fa-docker text-2xl text-white"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-gold">Docker</h4>
+          </div>
+          <p class="text-platinum opacity-90 text-sm text-center">Containerization and deployment</p>
+        </div>
+
+        <!-- Linux -->
+        <div class="world-class-product-card animate" style="animation-delay: 1.2s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center mx-auto mb-4 luxury-shadow">
+              <i class="fab fa-linux text-2xl text-white"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-gold">Linux</h4>
+          </div>
+          <p class="text-platinum opacity-90 text-sm text-center">Server administration & deployment</p>
+        </div>
+
+        <!-- AWS -->
+        <div class="world-class-product-card animate" style="animation-delay: 1.3s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-yellow-500 flex items-center justify-center mx-auto mb-4 luxury-shadow">
+              <i class="fab fa-aws text-2xl text-white"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-gold">AWS</h4>
+          </div>
+          <p class="text-platinum opacity-90 text-sm text-center">Cloud services & infrastructure</p>
+        </div>
+
+        <!-- Firebase -->
+        <div class="world-class-product-card animate" style="animation-delay: 1.4s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center mx-auto mb-4 luxury-shadow">
+              <i class="fas fa-fire text-2xl text-white"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-gold">Firebase</h4>
+          </div>
+          <p class="text-platinum opacity-90 text-sm text-center">Backend as a Service</p>
+        </div>
+
+        <!-- MongoDB -->
+        <div class="world-class-product-card animate" style="animation-delay: 1.5s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mx-auto mb-4 luxury-shadow">
+              <i class="fas fa-leaf text-2xl text-white"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-gold">MongoDB</h4>
+          </div>
+          <p class="text-platinum opacity-90 text-sm text-center">NoSQL database solution</p>
+        </div>
+
+        <!-- Nginx -->
+        <div class="world-class-product-card animate" style="animation-delay: 1.6s;">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center mx-auto mb-4 luxury-shadow">
+              <i class="fas fa-server text-2xl text-white"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-gold">Nginx</h4>
+          </div>
+          <p class="text-platinum opacity-90 text-sm text-center">Web server & reverse proxy</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Example -->
+    <div class="mb-16">
+      <h3 class="text-4xl font-serif font-semibold text-gold text-center mb-12 animate-from-left show">
+        <i class="fas fa-file-code mr-4"></i> Code Showcase
+      </h3>
+      
+      <div class="world-class-product-card animate" style="animation-delay: 1.7s; min-height: auto;">
+        <div class="bg-gradient-to-br from-onyx to-black p-8 rounded-xl border border-gold/30">
+          <div class="flex items-center justify-between mb-6">
+            <h4 class="text-2xl font-semibold text-gold">Advanced JavaScript Function</h4>
+            <div class="flex space-x-2">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+          </div>
+          
+          <div class="bg-black p-6 rounded-lg font-mono text-sm overflow-x-auto">
+            <pre class="text-green-400"><code>// Advanced encryption function with multiple layers
+class AdvancedEncryption {
+  constructor(key) {
+    this.key = key;
+    this.algorithm = 'aes-256-gcm';
+  }
+
+  async encrypt(data) {
+    const iv = crypto.randomBytes(16);
+    const cipher = crypto.createCipher(this.algorithm, this.key, iv);
+    
+    let encrypted = cipher.update(data, 'utf8', 'hex');
+    encrypted += cipher.final('hex');
+    
+    const authTag = cipher.getAuthTag();
+    
+    return {
+      encrypted: encrypted,
+      iv: iv.toString('hex'),
+      authTag: authTag.toString('hex')
+    };
+  }
+
+  async obfuscate(code) {
+    // Multi-layer obfuscation process
+    const layers = [
+      this.stringObfuscation,
+      this.controlFlowObfuscation,
+      this.deadCodeInjection
+    ];
+    
+    return layers.reduce((acc, layer) => layer(acc), code);
+  }
+}</code></pre>
+          </div>
+          
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="px-3 py-1 bg-gold bg-opacity-20 text-gold text-xs rounded-full">
+              <i class="fas fa-shield-alt mr-1"></i>Security
+            </span>
+            <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 text-xs rounded-full">
+              <i class="fas fa-code mr-1"></i>Encryption
+            </span>
+            <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 text-xs rounded-full">
+              <i class="fas fa-lock mr-1"></i>Obfuscation
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!--- Enckrip Tools --->
+   <div class="max-w-4xl mx-auto my-10 px-4 space-y-6">
+      <h3 class="text-4xl font-serif font-semibold text-gold text-center mb-12 animate-from-left show">
+        <i class="fas fa-file-code mr-4"></i> Enc JavaScript
+      </h3>
+
+  <!-- Input Kode -->
+  <div>
+    <label for="inputCode" class="block text-lg font-semibold text-gray-200 mb-2">
+      Masukkan kode JavaScript:
+    </label>
+    <textarea id="inputCode"
+              placeholder="console.log('Hello Qio');"
+              class="w-full min-h-[200px] bg-gray-900 text-green-200 text-sm font-mono p-4 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 resize-y whitespace-pre-wrap">
+    </textarea>
+  </div>
+
+  <!-- Upload File -->
+  <div>
+    <label for="uploadFile" class="block text-lg font-semibold text-gray-200 mb-2">
+      Atau unggah file JavaScript:
+    </label>
+    <input type="file" id="uploadFile"
+           accept=".js"
+           class="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-600 file:text-white hover:file:bg-green-700 transition" />
+  </div>
+
+  <!-- Tombol Obfuscate -->
+  <div>
+    <button onclick="obfuscate()"
+            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-200">
+      🔐 Obfuscate Kode
+    </button>
+  </div>
+
+  <!-- Output Kode -->
+  <div>
+    <label for="outputCode" class="block text-lg font-semibold text-gray-200 mb-2">
+      Hasil Obfuscation:
+    </label>
+    <pre id="outputCode"
+         class="bg-gray-900 text-green-200 text-sm font-mono p-4 rounded-xl shadow-md overflow-x-auto whitespace-pre-wrap min-h-[300px]">
+<code>// Kode hasil obfuscate akan muncul di sini</code>
+    </pre>
+  </div>
+
+  <!-- Tombol Download -->
+  <div>
+    <button id="downloadBtn"
+            onclick="downloadFile()"
+            style="display: none;"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-200">
+      ⬇️ Unduh Hasil Obfuscation
+    </button>
+  </div>
+</div>
+
+
+  <script>
+    function obfuscate() {
+      const inputCode = document.getElementById('inputCode').value;
+      const uploadFile = document.getElementById('uploadFile').files[0];
+
+      if (uploadFile) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const fileContent = e.target.result;
+          performObfuscation(fileContent);
+        };
+        reader.readAsText(uploadFile);
+      } else if (inputCode) {
+        performObfuscation(inputCode);
+      } else {
+        alert("Masukkan kode atau unggah file untuk diobfuscate!");
+      }
+    }
+
+    function performObfuscation(code) {
+      const obfuscationResult = JavaScriptObfuscator.obfuscate(code, {
+        compact: true,
+        controlFlowFlattening: true,
+        deadCodeInjection: true,
+        debugProtection: true,
+        selfDefending: true,
+        stringArray: true,
+        stringArrayEncoding: ['rc4'],  // Gunakan RC4 atau algoritma lebih kuat (kustom).
+        stringArrayThreshold: 1,
+        unicodeEscapeSequence: true,
+        numbersToExpressions: true,
+        simplify: true
+      });
+
+      const obfuscatedCode = obfuscationResult.getObfuscatedCode();
+      document.getElementById('outputCode').textContent = obfuscatedCode;
+      document.getElementById('downloadBtn').style.display = 'inline-block';
+      window.obfuscatedCodeToDownload = obfuscatedCode;
+    }
+
+    function downloadFile() {
+      const blob = new Blob([window.obfuscatedCodeToDownload], { type: 'application/javascript' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'obfuscated_code.js';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+  
+
+    <!-- Skills Summary -->
+    <div class="text-center">
+      <div class="world-class-product-card animate" style="animation-delay: 1.8s; min-height: auto;">
+        <h3 class="text-3xl font-serif font-semibold text-gold mb-8">
+          <i class="fas fa-trophy mr-4"></i> Technical Achievements
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-gold mb-2">5+</div>
+            <div class="text-platinum opacity-90">Years Experience</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-gold mb-2">100+</div>
+            <div class="text-platinum opacity-90">Projects Completed</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-gold mb-2">50+</div>
+            <div class="text-platinum opacity-90">Happy Clients</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-gold mb-2">24/7</div>
+            <div class="text-platinum opacity-90">Support Available</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Tambahkan di dalam <body> kode kedua (sebelum footer) -->
+<section id="ai" class="section">
+  <div class="max-w-7xl mx-auto px-6">
+    <h1 class="title">Qio AI</h1>
+    <h2 class="tagline typing-animation">Masa depan AI dimulai dari sini</h2>
+    <p class="subtitle">Asisten AI cerdas untuk kebutuhan chat, analisis gambar, dan hiburan</p>
+    
+    <div class="card">
+      <button class="start-chat-btn" onclick="window.location.href='chat.html'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Mulai Chat
+      </button>
+      
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div>
+            <h3 class="feature-title">Chat AI</h3>
+            <p class="feature-desc">Tanya apa saja</p>
+          </div>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          </div>
+          <div>
+            <h3 class="feature-title">Analisis Gambar</h3>
+            <p class="feature-desc">Unggah & analisis</p>
+          </div>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+          </div>
+          <div>
+            <h3 class="feature-title">Tools</h3>
+            <p class="feature-desc">Berbagai fitur</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>Dibuat oleh <a href="https://t.me/alwaysaqioox" target="_blank">Alwaysaqioo</a> &copy; 2025</p>
+    </div>
+  </div>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <!-- Particles Configuration -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": {
+            "value": 100,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#8b5cf6"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 2,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#8b5cf6",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 1,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": true,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 40,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 200,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
+  
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-onyx via-black to-onyx py-16 px-6 relative">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h3 class="text-4xl font-serif font-bold text-gold mb-4 animate-from-left show">Alwaysaqioo</h3>
+      <p class="text-platinum opacity-90 max-w-2xl mx-auto animate-from-left-delayed show" style="animation-delay: 0.2s;">
+        Crafting digital excellence with unparalleled innovation and sophistication. Your trusted partner in the digital realm.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+  <div class="text-center animate-from-left-delayed show" style="animation-delay: 0.3s;">
+    <h4 class="text-xl font-semibold text-gold mb-4">Quick Links</h4>
+    <div class="space-y-2">
+      <a href="#home" onclick="navigateToSection('home')" class="block text-platinum opacity-80 hover:text-gold transition duration-300">Home</a>
+      <a href="#about" onclick="navigateToSection('about')" class="block text-platinum opacity-80 hover:text-gold transition duration-300">About</a>
+      <a href="#products" onclick="navigateToSection('products')" class="block text-platinum opacity-80 hover:text-gold transition duration-300">Products</a>
+      <a href="#partners" onclick="navigateToSection('partners')" class="block text-platinum opacity-80 hover:text-gold transition duration-300">Partners</a>
+      <a href="#coding" onclick="navigateToSection('coding')" class="block text-platinum opacity-80 hover:text-gold transition duration-300">Coding</a>
+      <a href="#ai" onclick="navigateToSection('ai')" class="block text-platinum opacity-80 hover:text-gold transition duration-300">AI</a>
+    </div>
+  </div>
+</div>
+      
+      <div class="text-center animate-from-left-delayed show" style="animation-delay: 0.5s;">
+        <h4 class="text-xl font-semibold text-gold mb-4">Contact</h4>
+        <div class="space-y-2">
+          <p class="text-platinum opacity-80">
+            <i class="fab fa-telegram mr-2"></i>@Alwaysaqioox
+          </p>
+          <p class="text-platinum opacity-80">
+            <i class="fab fa-whatsapp mr-2"></i>+628xxx
+          </p>
+          <p class="text-platinum opacity-80">
+            <i class="fas fa-globe mr-2"></i>alwaysaqioo.my.id
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-gold border-opacity-30 pt-8">
+      <div class="text-center text-platinum opacity-80 animate-from-left-delayed show" style="animation-delay: 0.6s;">
+        <p>&copy; 2025 Alwaysaqioo. All rights reserved. Crafted with excellence and innovation.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+  <div class="flex justify-around items-center max-w-md mx-auto">
+    <div class="nav-item active" onclick="navigateToSection('home')" data-section="home">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </div>
+    <div class="nav-item" onclick="navigateToSection('about')" data-section="about">
+      <i class="fas fa-user"></i>
+      <span>About</span>
+    </div>
+    <div class="nav-item" onclick="navigateToSection('partners')" data-section="partners">
+      <i class="fas fa-users"></i>
+      <span>Partners</span>
+    </div>
+    <div class="nav-item" onclick="navigateToSection('products')" data-section="products">
+      <i class="fas fa-shopping-cart"></i>
+      <span>Shop</span>
+      <div class="notification-badge">New</div>
+    </div>
+    <div class="nav-item" onclick="navigateToSection('payment')" data-section="payment">
+      <i class="fas fa-credit-card"></i>
+      <span>Payment</span>
+    </div>
+    <div class="nav-item" onclick="navigateToSection('social')" data-section="social">
+      <i class="fas fa-share-alt"></i>
+      <span>Social</span>
+    </div>
+    <div class="nav-item" onclick="navigateToSection('coding')" data-section="coding">
+      <i class="fas fa-code"></i>
+      <span>Code</span>
+    </div>
+    <div class="nav-item" onclick="navigateToSection('ai')" data-section="ai">
+      <i class="fas fa-robot"></i>
+      <span>AI</span>
+    </div>
+  </div>
+</div>
+
+<script>
+// Intro Animation Control
+let introTimeout;
+
+function startIntroAnimation() {
+  introTimeout = setTimeout(() => {
+    hideIntro();
+  }, 6500); // Auto hide after 6.5 seconds
+}
+
+function hideIntro() {
+  const introScreen = document.getElementById('introScreen');
+  const mainWebsite = document.getElementById('mainWebsite');
+
+  introScreen.classList.add('hidden');
+
+  setTimeout(() => {
+    mainWebsite.classList.add('show');
+    startScrollAnimations();
+  }, 500);
+}
+
+// Skip button functionality
+document.getElementById('skipButton').addEventListener('click', () => {
+  clearTimeout(introTimeout);
+  hideIntro();
+});
+
+// Start intro animation when page loads
+window.addEventListener('load', () => {
+  startIntroAnimation();
+});
+
+// Navigation functionality
+function navigateToSection(sectionId) {
+  // Hide all sections
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => {
+    section.classList.remove('active');
+  });
+
+  // Show target section
+  const targetSection = document.getElementById(sectionId);
+  if (targetSection) {
+    targetSection.classList.add('active');
+  }
+
+  // Update navigation
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(item => {
+    item.classList.remove('active');
+  });
+
+  const activeNavItem = document.querySelector(`[data-section="${sectionId}"]`);
+  if (activeNavItem) {
+    activeNavItem.classList.add('active');
+  }
+
+  // Trigger animations for the new section
+  triggerSectionAnimations(sectionId);
+}
+
+// Trigger animations for specific sections
+function triggerSectionAnimations(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (!section) return;
+
+  // Reset animations
+  const animatedElements = section.querySelectorAll('.animate, .animate-from-left, .animate-from-left-delayed');
+  animatedElements.forEach((element, index) => {
+    element.style.animation = 'none';
+    element.offsetHeight; // Trigger reflow
+    element.style.animation = null;
+    
+    // Add staggered delay
+    if (element.classList.contains('animate')) {
+      element.style.animationDelay = `${index * 0.1}s`;
+    }
+  });
+}
+
+// Scroll animations
+function startScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all animated elements
+  const animatedElements = document.querySelectorAll('.animate-from-left, .animate-from-left-delayed, .scroll-reveal');
+  animatedElements.forEach(element => {
+    observer.observe(element);
+  });
+}
+
+// Toggle description functionality
+function toggleDesc(id) {
+  const element = document.getElementById(id);
+  const button = element.previousElementSibling;
+  const icon = button.querySelector('i');
+
+  if (element.classList.contains('hidden')) {
+    element.classList.remove('hidden');
+    icon.classList.remove('fa-chevron-down');
+    icon.classList.add('fa-chevron-up');
+  } else {
+    element.classList.add('hidden');
+    icon.classList.remove('fa-chevron-up');
+    icon.classList.add('fa-chevron-down');
+  }
+}
+
+// Copy to clipboard functionality
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    // Show success message
+    showNotification('Number copied to clipboard!', 'success');
+  }).catch(() => {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    showNotification('Number copied to clipboard!', 'success');
+  });
+}
+
+// Open YouTube video
+function openYoutube(url) {
+  window.open(url, '_blank');
+}
+
+// Show notification
+function showNotification(message, type = 'info') {
+  const notification = document.createElement('div');
+  notification.className = `fixed top-20 right-4 z-50 px-6 py-3 rounded-lg text-white font-medium transition-all duration-300 transform translate-x-full`;
+
+  if (type === 'success') {
+    notification.classList.add('bg-emerald');
+  } else if (type === 'error') {
+    notification.classList.add('bg-red-500');
+  } else {
+    notification.classList.add('bg-sapphire');
+  }
+
+  notification.innerHTML = `
+    <div class="flex items-center">
+      <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'times' : 'info'} mr-2"></i>
+      ${message}
+    </div>
+  `;
+
+  document.body.appendChild(notification);
+
+  // Animate in
+  setTimeout(() => {
+    notification.classList.remove('translate-x-full');
+  }, 100);
+
+  // Animate out and remove
+  setTimeout(() => {
+    notification.classList.add('translate-x-full');
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+// Enhanced hover effects
+document.addEventListener('DOMContentLoaded', () => {
+  // Add hover effects to cards
+  const cards = document.querySelectorAll('.world-class-partner-card, .world-class-product-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-15px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+
+  // Add parallax effect to floating diamonds
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const diamonds = document.querySelectorAll('.diamond');
+    
+    diamonds.forEach((diamond, index) => {
+      const speed = 0.5 + (index * 0.1);
+      diamond.style.transform = `translateY(${scrolled * speed}px) rotate(45deg)`;
+    });
+  });
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  const sections = ['home', 'about', 'partners', 'products', 'payment', 'social', 'coding', 'ai'];
+  const currentSection = document.querySelector('.section.active').id;
+  const currentIndex = sections.indexOf(currentSection);
+
+  if (e.key === 'ArrowLeft' && currentIndex > 0) {
+    navigateToSection(sections[currentIndex - 1]);
+  } else if (e.key === 'ArrowRight' && currentIndex < sections.length - 1) {
+    navigateToSection(sections[currentIndex + 1]);
+  }
+});
+
+// Performance optimization
+window.addEventListener('load', () => {
+  // Preload images
+  const images = [
+    '/placeholder.svg?height=160&width=160'
+  ];
+
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+});
+
+// Add smooth scrolling for better UX
+document.documentElement.style.scrollBehavior = 'smooth';
+
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Add entrance animations to cards with staggered delays
+  const cards = document.querySelectorAll('.world-class-partner-card, .world-class-product-card');
+  cards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+    card.classList.add('animate');
+  });
+});
+</script>
+</body>
+</html>
